@@ -12,14 +12,14 @@
 - ransack
 
 # 実行手順
-$ git clone git@github.com:KanameEndo/Small-Farm.git
-$ cd Small-Farm
-$ bundle install
-$ yarn install
-$ rails db:create
-$ rails db:migrate
-$ rails db:seed
-$ rails s
+$ git clone git@github.com:KanameEndo/Small-Farm.git</br>
+$ cd Small-Farm</br>
+$ bundle install</br>
+$ yarn install</br>
+$ rails db:create</br>
+$ rails db:migrate</br>
+$ rails db:seed</br>
+$ rails s</br>
 
 # カタログ設計
 https://docs.google.com/spreadsheets/d/1K93U7-_PRZAJChWsSve7Ikyp6RXX1lK04IYfW69K9Ew/edit#gid=1133621984
