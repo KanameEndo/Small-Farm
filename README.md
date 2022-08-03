@@ -31,8 +31,8 @@ https://docs.google.com/spreadsheets/d/1HZ0Qwzyn7gdVhHsnHz73OOep4aVdymJ2wfAxwkox
 https://cacoo.com/diagrams/MrPU39SeBESpBlG9/72043?reload_rt=1659530768393_0&
 
 # ER図
-https://user-images.githubusercontent.com/82632398/127740039-9f5f9e6b-43ca-468f-8cee-58ea677997b7.jpg
+https://github.com/KanameEndo/Small-Farm/blob/master/ER.png
 
 # 画面遷移図
-https://user-images.githubusercontent.com/82632398/127662247-730c9c95-d605-4195-86cb-9ddcb9401a92.jpg
-# Small-Farm
+https://github.com/KanameEndo/Small-Farm/blob/master/transition.png
+
