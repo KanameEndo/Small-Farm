@@ -11,6 +11,15 @@
 # カリキュラム外の技術
 - ransack
 
+# 使用するGem
+- device</br>
+- rexml</br>
+- ransack</br>
+- simple_calendar</br>
+- carrierwave</br>
+- mini_magick</br>
+- rexml</br>
+
 # 実行手順
 $ git clone git@github.com:KanameEndo/Small-Farm.git</br>
 $ cd Small-Farm</br>
@@ -31,8 +40,8 @@ https://docs.google.com/spreadsheets/d/1HZ0Qwzyn7gdVhHsnHz73OOep4aVdymJ2wfAxwkox
 https://cacoo.com/diagrams/MrPU39SeBESpBlG9/72043?reload_rt=1659530768393_0&
 
 # ER図
-https://github.com/KanameEndo/Small-Farm/blob/master/ER.png
+https://user-images.githubusercontent.com/104885491/182797914-2860f7d5-d7c5-4ecc-9196-82a493e3db74.png
 
 # 画面遷移図
-https://github.com/KanameEndo/Small-Farm/blob/master/transition.png
+https://user-images.githubusercontent.com/104885491/182798138-87cc2019-bad9-4ec0-8299-dd6754607621.png
 
