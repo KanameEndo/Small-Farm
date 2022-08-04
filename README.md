@@ -40,7 +40,7 @@ https://docs.google.com/spreadsheets/d/1HZ0Qwzyn7gdVhHsnHz73OOep4aVdymJ2wfAxwkox
 https://cacoo.com/diagrams/MrPU39SeBESpBlG9/72043?reload_rt=1659530768393_0&
 
 # ER図
-![ER](https://user-images.githubusercontent.com/104885491/182800086-d44e9567-4c72-4440-8509-a515c5cd1dec.png)
+![ER](https://user-images.githubusercontent.com/104885491/182801012-ff7f026c-91e0-4a90-ac99-8d3f78dd27b6.png)
 
 # 画面遷移図
 ![transition](https://user-images.githubusercontent.com/104885491/182800149-1023c171-de25-44b6-a298-ef5610ec6f2d.png)
