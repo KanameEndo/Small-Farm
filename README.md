@@ -12,13 +12,15 @@
 - ransack
 
 # 使用するGem
-- device
-- rexml
-- ransack
-- simple_calendar
-- carrierwave
-- mini_magick
-- rexml
+- device</br>
+- rexml</br>
+- ransack</br>
+- simple_calendar</br>
+- carrierwave</br>
+- mini_magick</br>
+- rails_admin</br>
+- cancancan</br>
+
 
 # 実行手順
 $ git clone git@github.com:KanameEndo/Small-Farm.git</br>
@@ -40,8 +42,8 @@ https://docs.google.com/spreadsheets/d/1HZ0Qwzyn7gdVhHsnHz73OOep4aVdymJ2wfAxwkox
 https://cacoo.com/diagrams/MrPU39SeBESpBlG9/72043?reload_rt=1659530768393_0&
 
 # ER図
-https://user-images.githubusercontent.com/104885491/182797914-2860f7d5-d7c5-4ecc-9196-82a493e3db74.png
+![ER](https://user-images.githubusercontent.com/104885491/182801012-ff7f026c-91e0-4a90-ac99-8d3f78dd27b6.png)
 
 # 画面遷移図
-https://user-images.githubusercontent.com/104885491/182798138-87cc2019-bad9-4ec0-8299-dd6754607621.png
+![transition](https://user-images.githubusercontent.com/104885491/182800149-1023c171-de25-44b6-a298-ef5610ec6f2d.png)
 
