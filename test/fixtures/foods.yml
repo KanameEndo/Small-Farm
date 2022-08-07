@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_name: MyString
+  variety: MyString
+  comment: MyText
+  storage_method: MyString
+  harvest: MyString
+  price: MyString
+  stock: 1
+  image: MyString
+
+two:
+  item_name: MyString
+  variety: MyString
+  comment: MyText
+  storage_method: MyString
+  harvest: MyString
+  price: MyString
+  stock: 1
+  image: MyString

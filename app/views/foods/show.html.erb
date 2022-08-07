@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item name:</strong>
+  <%= @food.item_name %>
+</p>
+
+<p>
+  <strong>Variety:</strong>
+  <%= @food.variety %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @food.comment %>
+</p>
+
+<p>
+  <strong>Storage method:</strong>
+  <%= @food.storage_method %>
+</p>
+
+<p>
+  <strong>Harvest:</strong>
+  <%= @food.harvest %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @food.price %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @food.stock %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @food.image %>
+</p>
+
+<%= link_to 'Edit', edit_food_path(@food) %> |
+<%= link_to 'Back', foods_path %>
