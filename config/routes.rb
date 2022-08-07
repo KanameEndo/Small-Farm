@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'plans/index'
   get 'plan/index'
   devise_for :users
   resources :foods

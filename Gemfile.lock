@@ -98,7 +98,11 @@ GEM
     devise-i18n (1.10.2)
       devise (>= 4.8.0)
     erubi (1.11.0)
+    faker (2.22.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
+    gimei (1.1.0)
+      romaji
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -205,6 +209,8 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.5)
+    romaji (0.2.4)
+      rake (>= 0.8.0)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     rubyzip (2.3.2)
@@ -285,6 +291,8 @@ DEPENDENCIES
   carrierwave
   devise
   devise-i18n
+  faker
+  gimei
   jbuilder (~> 2.7)
   letter_opener_web
   listen (~> 3.2)
