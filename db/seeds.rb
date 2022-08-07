@@ -7,11 +7,16 @@
               password: password,
               )
 end
-Plan.create!(
-  title: "農薬",
-  content: "米の農薬をかける",
-  start_time: 1,
-  explanation:
-  "OSとはOperation System（オペレーティング・システム）の略で、アプリやデバイスを動作させるための基本となるソフトウェアのことです。 具体的には、キーボードやマウス・タッチパッドなどのデバイスから入力した情報をアプリケーションに伝え、またソフトウェアとハードウェアの連携を司る中枢的な役割を果たします。 パソコンやスマートフォンにはゲームやワープロ・表計算などさまざまな仕事をするアプリケーションがありますが、それらはOSごとに開発されるのが通常です。\r\n\r\n\r\n```\r\n例）\r\n・Mac OS\r\n・Window OS\r\n・Linux\r\n```\r\n\r\n",
-  rate: 3,
-)
+10.times do |n|
+  titile = Gimei.kanji
+  content = Gimei.kanji
+  start_time = Faker::Date.forward(days: 10)
+  Plan.create!(
+    titile:         titile, 
+    content:         content, 
+    start_time:          start_time, 
+    user_id:           "1", 
+    created_at:          "2021-01-01 00:00:00",
+    updated_at:          "2021-01-01 00:00:00"
+  )
+end
