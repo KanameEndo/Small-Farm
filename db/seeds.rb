@@ -12,11 +12,11 @@ end
 
 # スケジュール生成
 10.times do |n|
-  titile = Gimei.kanji
+  title = Gimei.kanji
   content = Gimei.kanji
   start_time = Faker::Date.forward(days: 10)
   Plan.create!(
-    titile:         titile,
+    title:         title,
     content:         content,
     start_time:          start_time,
     user_id:           "2",
@@ -35,7 +35,6 @@ end
     storage_method:        "2週間",
     harvest:          "8月15日〜8月20日予定",
     price:               "200",
-    user_id:              "2",
     created_at:          "2021-01-01 00:00:00",
     updated_at:          "2021-01-01 00:00:00"
   )
