@@ -31,12 +31,14 @@ gem 'devise'
 gem 'rexml'
 gem 'devise'
 gem 'devise-i18n'
-gem 'rails_admin', '~> 3.0'
+gem 'rails_admin'
 gem 'cancancan'
 gem 'ransack'
 gem 'simple_calendar', '~> 2.0'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'faker'
+gem 'gimei'
 
 
 group :development, :test do
