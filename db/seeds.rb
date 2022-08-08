@@ -39,3 +39,11 @@ end
     updated_at:          "2021-01-01 00:00:00"
   )
 end
+# 管理者用ログイン
+User.create!(
+  name: '管理者',
+  email: 'admin@example.com',
+  password: 'admin01',
+  password_confirmation: 'admin01',
+  admin: true
+)
