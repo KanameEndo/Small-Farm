@@ -9,6 +9,7 @@ class FoodsController < ApplicationController
 
   # GET /foods/1 or /foods/1.json
   def show
+    @favorite = current_user.favorites.find_by(food_id: @food.id)
   end
 
   # GET /foods/new
