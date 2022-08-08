@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2022_08_07_114551) do
     t.datetime "start_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "user_id", null: false
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
