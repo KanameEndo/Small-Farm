@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2022_08_07_114551) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
+    t.string "name", default: "", null: false
     t.boolean "admin", default: false
     t.string "confirmation_token"
     t.datetime "confirmed_at"

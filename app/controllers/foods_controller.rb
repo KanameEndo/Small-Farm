@@ -23,15 +23,12 @@ class FoodsController < ApplicationController
   # POST /foods or /foods.json
   def create
     @food = Food.new(food_params)
-
-    respond_to do |format|
-      if @food.save
-        format.html { redirect_to food_url(@food), notice: "Food was successfully created." }
-        format.json { render :show, status: :created, location: @food }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @food.errors, status: :unprocessable_entity }
-      end
+    if @food.save
+      NoticeMailer.sendmail_food(@food).deliver_later
+      redirect_to foods_path, notice: 'Food was successfully created.'
+    else
+      format.html { render :new, status: :unprocessable_entity }
+      format.json { render json: @food.errors, status: :unprocessable_entity }
     end
   end
 
