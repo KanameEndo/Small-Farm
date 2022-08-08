@@ -25,7 +25,7 @@ class FoodsController < ApplicationController
   def create
     @food = Food.new(food_params)
     if @food.save
-      NoticeMailer.sendmail_food(@food).deliver_later
+      NoticeMailer.sendmail_food(@food).deliver
       redirect_to foods_path, notice: 'Food was successfully created.'
     else
       format.html { render :new, status: :unprocessable_entity }
