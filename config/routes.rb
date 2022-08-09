@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  resources :foods, # only: [:index, :show]
-    namespace :admin do
-      resources :foods, only: [:index, :new, :create, :show,  :edit, :destroy]
-    end
+  resources :foods  # only: [:index, :show]
+    # namespace :admin do
+    #   resources :foods, only: [:index, :new, :create, :show,  :edit, :destroy]
+    # end
   resources :plans
   resources :favorites, only: [:create, :destroy]
   root 'foods#index'
