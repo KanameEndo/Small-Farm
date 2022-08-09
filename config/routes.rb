@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :foods
   resources :plans
+  resources :favorites, only: [:create, :destroy]
   root 'foods#index'
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
