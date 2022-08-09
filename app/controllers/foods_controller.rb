@@ -3,7 +3,8 @@ class FoodsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
 
   def index
-    @foods = Food.all
+    @q = Food.ransack(params[:q])
+    @foods = @q.result(distinct: true)
   end
 
   def show
