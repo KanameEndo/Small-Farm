@@ -1,0 +1,17 @@
+ja:
+  foods:
+    index:
+      Item name: '名前'
+      Variety: '品種'
+      Comment: '説明'
+      Storage method: '保存方法'
+      Harvest: '収穫予定日'
+      Price: '料金'
+      Harvest: '収穫予定日'
+      Harvest: '収穫予定日'
+    show:
+      # 引数の指定もできる。
+      title: '%{user_name}さんのユーザ情報'
+    edit:
+      # view側で t(.titile), user_name: @user.name みたいな感じで設定できる
+      title: '%{user_name}さんのユーザ情報を編集'
