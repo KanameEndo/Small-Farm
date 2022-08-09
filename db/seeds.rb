@@ -46,3 +46,10 @@ User.create!(
   password: 'admin01',
   admin: true
 )
+User.create!(
+  name:  "管理者02",
+  email: "admin@example.jp",
+  password:  "11111111",
+  password_confirmation: "11111111",
+  admin: true
+)
