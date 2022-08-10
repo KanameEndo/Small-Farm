@@ -1,3 +1,21 @@
+<div id="<%= @food.id %> favorite">
+  <% if !Favorite.exists?(user: current_user, food_id: @food.id) %>
+    <%= link_to food_favorites_path(@food), method: :food, remote: true, class: "favorite-btn favorite-food" do %>
+      <div class="i far fa-thumbs-up">
+        <span></span>
+        <%= @food.favorites.length %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to food_favorites_path(@food), method: :delete, remote: true, class: "favorite-btn favorite-delete" do %>
+      <div class="i far fa-thumbs-up">
+        <span></span>
+        <%= @food.favorites.length %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
 <%= search_form_for @q do |f| %>
   <%= f.label :item_name_cont, "Keyword" %>
   <%= f.search_field :item_name_cont %>

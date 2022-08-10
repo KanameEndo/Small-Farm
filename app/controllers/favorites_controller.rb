@@ -1,19 +1,32 @@
 class FavoritesController < ApplicationController
-  before_action :set_food, only: [:create, :destroy]
+  before_action :set_food
+  before_action :authenticate_user!
 
   def index
     @foods = Food.includes(:food_images).order("created_at DESC")
   end
 
   def create
-    @favorite = current_user.favorites.create(food_id: params[:food_id],user_id: current_user.id)
-    redirect_to foods_path(@food.id)
+    if @food.user_id != current_user.id   # 投稿者本人以外に限定
+      @favorite = Favorite.create(user_id: current_user.id, food_id: @food.id)
+    end
   end
 
+  # def create
+  #   @favorite = current_user.favorites.create(food_id: params[:food_id])
+  #   redirect_back(fallback_location: root_path )
+  # end
+
   def destroy
-    @favorite = Favorites.find_by(food_id: params[:food_id],user_id: current_user.id)
+    @favorite = Favorite.find_by(user_id: current_user.id, food_id: @food.id)
     @favorite.destroy
-    redirect_to foods_path(@food.id)
+  end
+
+  # def destroy
+  #   @food = Food.find(params[:food_id])
+  #   @favorite = current_user.favorites.find_by(food_id: @food.id)
+  #   @favorite.destroy
+  #   redirect_back(fallback_location: root_path )
   end
 
   def set_food

@@ -1,3 +1,4 @@
+<% @search_item.each do |items| %>
 <% if user_signed_in? && Favorite.favorite_method(@food, current_user) %>
   <% if @favorite.present? %>
     <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>

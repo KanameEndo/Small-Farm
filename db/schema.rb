@@ -36,7 +36,6 @@ ActiveRecord::Schema.define(version: 2022_08_08_115826) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["food_id"], name: "index_favorites_on_food_id"
-    t.index ["user_id", "food_id"], name: "index_favorites_on_user_id_and_food_id", unique: true
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
@@ -74,7 +73,6 @@ ActiveRecord::Schema.define(version: 2022_08_08_115826) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
-    t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
@@ -82,7 +80,6 @@ ActiveRecord::Schema.define(version: 2022_08_08_115826) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name", default: "", null: false
     t.boolean "admin", default: false
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

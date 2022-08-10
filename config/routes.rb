@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   get 'users/show'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  resources :users, only: [:show]do
-    resources :favorites, only: [:index]
+  resources :users, only: [:show, :edit, :update]do
+    # resources :favorites, only: [:index]
+    get :favorites, on: :collection
   end
-  resources :foods, only: [:index, :new, :create, :edit, :update, :show, :destroy] do
+  # resources :foods, only: [:index, :new, :create, :edit, :update, :show, :destroy] do
+    resources :foods, expect: [:index] do
       resource :favorites, only: [:create, :destroy]
     end
     #   resources :foods, only: [:index, :new, :create, :show,  :edit, :destroy]
