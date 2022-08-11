@@ -12,8 +12,11 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
   post 'favorite/:id' => 'favorites#create', as: 'create_favorite'
+  delete 'like/:id' => 'likes#destroy', as: 'destroy_like'
+
     #   resources :foods, only: [:index, :new, :create, :show,  :edit, :destroy]
     # end
+  
   resources :plans
   resources :favorites, only: [:create, :destroy]
   root 'foods#index'

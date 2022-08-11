@@ -1,0 +1,10 @@
+<td><%= food.item_name %></td>
+<%# 以下を追記 %>
+<% if current_user.favorited_by?(food.id) %>
+  <td><%= link_to 'お気に入りから外す', destroy_favorite_path(food), method: :DELETE, remote: true %> <%= post.foods.count %></td>
+<% else %>
+  <td><%= link_to 'お気に入り', create_favorite_path(food), method: :POST, remote: true %> <%= post.foods.count %></td>
+<% end %>
+<td><%= link_to 'Show', food %></td>
+<td><%= link_to 'Edit', edit_food_path(food) %></td>
+<td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -29,18 +29,8 @@
   </thead>
   <tbody>
     <% @foods.each do |food| %>
-      <tr>
-        <td><%= food.item_name %></td>
-
-        <%# 以下を追記 %>
-        <% if current_user.favorited_by?(food.id) %>
-          <td>お気に入りを外す</td>
-        <% else %>
-          <td>お気に入り</td>
-        <% end %>
-        <td><%= link_to 'Show', food %></td>
-        <td><%= link_to 'Edit', edit_food_path(food) %></td>
-        <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <tr id="food_<%= food.id %>">
+        <%= render 'food', food: food %>
       </tr>
     <% end %>
   </tbody>
