@@ -82,18 +82,18 @@ Food.create!(
   updated_at:        "2021-01-01 00:00:00"
   )
 
-# 管理者生成
-# User.create!(
-#   name:              '管理者01',
-#   email:             'admin@example.com',
-#   password:          'admin01',
-#   password_confirmation: "admin01",
-#   admin: true
-# )
-# User.create!(
-#   name:             "管理者02",
-#   email:            "admin@example.jp",
-#   password:         "11111111",
-#   password_confirmation: "11111111",
-#   admin: true
-# )
+管理者生成
+User.create!(
+  name:              '管理者01',
+  email:             'admin@example.com',
+  password:          'admin01',
+  password_confirmation: "admin01",
+  admin: true
+)
+User.create!(
+  name:             "管理者02",
+  email:            "admin@example.jp",
+  password:         "11111111",
+  password_confirmation: "11111111",
+  admin: true
+)
