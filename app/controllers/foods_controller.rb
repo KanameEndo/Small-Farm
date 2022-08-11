@@ -1,6 +1,7 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
+  before_action :check_admin, only: [:new, :edit, :update, :destroy, :create]
 
   def index
     @q = Food.ransack(params[:q])
@@ -54,5 +55,10 @@ class FoodsController < ApplicationController
 
     def food_params
       params.require(:food).permit(:item_name, :variety, :comment, :storage_method, :harvest, :price, :stock, :image)
+    end
+
+    def check_admin
+      return if current_user.admin
+      redirect_to root_path
     end
 end

@@ -10,39 +10,11 @@ class FavoritesController < ApplicationController
     Favorite.create(user_id: current_user.id, food_id: params[:id])
   end
 
-  # def create
-  #   @favorite = Favorite.new(user_id: current_user.id, food_id: @food.id)
-  #   @favorite.save
-  #   redirect_to foods_path
-  # end
-  # def create
-  #   if @food.user_id != current_user.id   # 投稿者本人以外に限定
-  #     @favorite = Favorite.create(user_id: current_user.id, food_id: @food.id)
-  #   end
-  # end
-
-  # def create
-  #   @favorite = current_user.favorites.create(food_id: params[:food_id])
-  #   redirect_back(fallback_location: root_path )
-  # end
-
   def destroy
     Favorite.find_by(user_id: current_user.id, food_id: params[:id]).destroy
   end
 
-  # def destroy
-  #   @favorite = Favorite.find_by(user_id: current_user.id, food_id: @food.id)
-  #   @favorite.destroy
-  # end
-
-  # def destroy
-  #   @food = Food.find(params[:food_id])
-  #   @favorite = current_user.favorites.find_by(food_id: @food.id)
-  #   @favorite.destroy
-  #   redirect_back(fallback_location: root_path )
-  # end
-
   def set_food
-    @food = Food.find_by(id: params[:food_id])
+    @food = Food.find_by(id: params[:id])
   end
 end
