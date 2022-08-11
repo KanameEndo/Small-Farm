@@ -1,5 +1,5 @@
 <td><%= food.item_name %></td>
-<% if current_user.favorited_by?(food.id) >
+<% if current_user.favorited_by?(food.id) %>
   <td>
     <%= link_to destroy_favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
       <i class="fa fa-heart unlike-btn"></i>
