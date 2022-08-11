@@ -9,6 +9,7 @@ class FavoritesController < ApplicationController
   def create
     @favorite = Favorite.new(user_id: current_user.id, food_id: @food.id)
     @favorite.save
+    redirect_to foods_path
   end
   # def create
   #   if @food.user_id != current_user.id   # 投稿者本人以外に限定

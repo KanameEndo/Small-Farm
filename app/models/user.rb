@@ -3,9 +3,9 @@ class User < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_foods, through: :favorites, source: :food #ⅲ
 
-  # def favorited?(food)
-  #   self.favorites.exists?(food_id: food.id)
-  # end
+  def favorited_by?(food_id)
+    favorites.where(food_id: food_id).exists?
+  end
 
   validates :name, presence: true #追記
 

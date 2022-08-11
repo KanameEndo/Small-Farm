@@ -16,6 +16,37 @@
   <%# <% end %> %>
 <%# </div> %> %>
 
+<p id="notice"><%= notice %></p>
+<h1>foods</h1>
+<table>
+  <thead>
+    <tr>
+      <th>item_name</th>
+
+      <%# Userの1行を削除 %>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.item_name %></td>
+
+        <%# 以下を追記 %>
+        <% if current_user.favorited_by?(food.id) %>
+          <td>お気に入りを外す</td>
+        <% else %>
+          <td>お気に入り</td>
+        <% end %>
+        <td><%= link_to 'Show', food %></td>
+        <td><%= link_to 'Edit', edit_food_path(food) %></td>
+        <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
 <%= search_form_for @q do |f| %>
   <%= f.label :item_name_cont, "Keyword" %>
   <%= f.search_field :item_name_cont %>
