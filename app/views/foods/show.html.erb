@@ -1,11 +1,14 @@
-<% @search_item.each do |items| %>
-<% if user_signed_in? && Favorite.favorite_method(@food, current_user) %>
-  <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'お気に入りする', favorites_path(food_id: @food.id), method: :post, class: 'btn btn-primary' %>
-  <% end %>
-<% end %>
+<%# <% @search_item.each do |items| %>
+<%# <% if user_signed_in? && Favorite.favorite_method(@food, current_user) %> %>
+  <%# <% if @favorite.present? %> %>
+    <%# <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %> %>
+  <%# <% else %> %>
+    <%# <%= link_to 'お気に入りする', favorites_path(food_id: @food.id), method: :post, class: 'btn btn-primary' %> %>
+  <%# <% end %> %>
+<%# <% end %> %> %>
+<div class="favorites" id="favorite_<%= @item.id %>">
+  <%= render 'favorites/favorite', item: @item %>
+</div>
 
 <p>
   <strong>Item name:</strong>

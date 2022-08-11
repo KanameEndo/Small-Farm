@@ -1,0 +1,39 @@
+<% if user_signed_in? %>
+  <% if current_user.favorites.find_by(food_id: food.id) %>
+    <%= link_to item_favorites_path(food.id), method: :delete, remote: true do %>
+      <div class="icon">
+        <%= icon('fa', 'star') %>
+      </div>
+      <div class="text">
+        <%= 'like' %>
+      </div>
+      <div class="count">
+        <%= food.favorites.count %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to item_favorites_path(food.id), method: :post, remote: true do %>
+      <div class="icon">
+        <%= icon('far', 'star') %>
+      </div>
+      <div class="text">
+        <%= 'like' %>
+      </div>
+      <div class="count">
+        <%= food.favorites.count %>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= link_to new_user_session_path do %>
+    <div class="icon">
+      <%= icon('far', 'star') %>
+    </div>
+    <div class="text">
+      <%= 'like!' %>
+    </div>
+    <div class="cnunt">
+      <%= food.favorites.count %>
+    </div>
+  <% end %>
+<% end %>

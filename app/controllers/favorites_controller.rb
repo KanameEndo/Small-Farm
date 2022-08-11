@@ -7,10 +7,14 @@ class FavoritesController < ApplicationController
   end
 
   def create
-    if @food.user_id != current_user.id   # 投稿者本人以外に限定
-      @favorite = Favorite.create(user_id: current_user.id, food_id: @food.id)
-    end
+    @favorite = Favorite.new(user_id: current_user.id, food_id: @food.id)
+    @favorite.save
   end
+  # def create
+  #   if @food.user_id != current_user.id   # 投稿者本人以外に限定
+  #     @favorite = Favorite.create(user_id: current_user.id, food_id: @food.id)
+  #   end
+  # end
 
   # def create
   #   @favorite = current_user.favorites.create(food_id: params[:food_id])
@@ -30,6 +34,6 @@ class FavoritesController < ApplicationController
   end
 
   def set_food
-    @food = Food.find(params[:food_id])
+    @food = Food.find_by(id: params[:food_id])
   end
 end
