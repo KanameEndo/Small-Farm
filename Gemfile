@@ -41,6 +41,7 @@ gem 'faker'
 gem 'gimei'
 gem 'delayed_job_active_record'
 gem 'font-awesome-sass'
+gem "dotenv-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
