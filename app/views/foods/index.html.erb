@@ -1,20 +1,20 @@
 <%# <div id="<%= @food.id favorite"> %>
-  <%# <% if !Favorite.exists?(user: current_user, food_id: @food.id) %> %>
-    <%# <%= link_to food_favorites_path(@food), method: :food, remote: true, class: "favorite-btn favorite-food" do %> %>
+  <%# <% if !Favorite.exists?(user: current_user, food_id: @food.id) %> 
+    <%# <%= link_to food_favorites_path(@food), method: :food, remote: true, class: "favorite-btn favorite-food" do %>
       <%# <div class="i far fa-thumbs-up"> %>
         <%# <span></span> %>
-        <%# <%= @food.favorites.length %> %>
+        <%# <%= @food.favorites.length %> 
       <%# </div> %>
-    <%# <% end %> %>
-  <%# <% else %> %>
-    <%# <%= link_to food_favorites_path(@food), method: :delete, remote: true, class: "favorite-btn favorite-delete" do %> %>
+    <%# <% end %> 
+  <%# <% else %>
+    <%# <%= link_to food_favorites_path(@food), method: :delete, remote: true, class: "favorite-btn favorite-delete" do %>
       <%# <div class="i far fa-thumbs-up"> %>
         <%# <span></span> %>
-        <%# <%= @food.favorites.length %> %>
+        <%# <%= @food.favorites.length %> 
       <%# </div> %>
-    <%# <% end %> %>
-  <%# <% end %> %>
-<%# </div> %> %>
+    <%# <% end %> 
+  <%# <% end %> 
+<%# </div> %> 
 
 <p id="notice"><%= notice %></p>
 <h1>foods</h1>
@@ -22,8 +22,6 @@
   <thead>
     <tr>
       <th>item_name</th>
-
-      <%# Userの1行を削除 %>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -36,13 +34,6 @@
   </tbody>
 </table>
 <br>
-
-<%= search_form_for @q do |f| %>
-  <%= f.label :item_name_cont, "Keyword" %>
-  <%= f.search_field :item_name_cont %>
-
-  <%= f.submit "検索" %>
-<% end %>
 
 <h1>Foods</h1>
 
