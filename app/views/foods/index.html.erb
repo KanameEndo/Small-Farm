@@ -50,13 +50,13 @@
         <td><%= food.harvest %></td>
         <td><%= food.price %></td>
         <td><%= food.stock %></td>
-        <td><%= food.image %></td>
+        <td><%#= image_tag @food.image.url if @food.image.present? %></td>
         <td><%= link_to 'Show', food_path(food) %></td>
-        <% if current_user == current_user.admin %>
+        <%# <% if food.user == current_user.admin %> 
           <td><%= link_to 'Edit', edit_food_path(food) %></td>
           <td><%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
-        <% end %>
+        <%# <% end %>
     <% end %>
   </tbody>
 </table>

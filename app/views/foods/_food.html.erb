@@ -21,18 +21,18 @@
       <td><%= food.harvest %></td>
       <td><%= food.price %></td>
       <td><%= food.stock %></td>
-      <td><%= food.image %></td>
+      <%#= image_tag @food.image.url if @food.image.present? %>
       <td><%= link_to 'Show', food_path(food) %></td>
-      <% if current_user == current_user.admin %>
+      <%# <% if current_user == current_user.admin %>
         <td><%= link_to 'Edit', edit_food_path(food) %></td>
         <td><%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-      <% end %>
+      <%# <% end %>
   <% end %>
 </tbody>
 <% if !current_user%>
 <td>ログインしていません。</td>
-<% elsif current_user.favorited_by?(food.id) %>
+  <% elsif current_user.favorited_by?(food.id) %>
   <td>
     <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
       いいねを外す　<%# <i class="fa fa-heart unlike-btn"></i> %>
