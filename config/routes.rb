@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get :favorites, on: :collection
   end
 
-  resources :foods, expect: [:index] do
+  resources :foods do
     resource :favorites, only: [:create, :destroy]
   end
   post 'favorite/:id' => 'favorites#create', as: 'create_favorite'

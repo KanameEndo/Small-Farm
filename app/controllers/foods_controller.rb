@@ -9,7 +9,7 @@ class FoodsController < ApplicationController
   end
 
   def show
-    @favorite = Favorites.find_by(food_id: @food.id)
+    @favorite = Favorite.find_by(food_id: @food.id)
   end
 
   def new

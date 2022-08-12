@@ -35,6 +35,12 @@
 </table>
 <br>
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :item_name_or_variety_or_comment_or_storage_method_or_harvest_or_price_or_stock_cont, "Keyword" %>
+  <%= f.search_field :item_name_or_variety_or_comment_or_storage_method_or_harvest_or_price_or_stock_cont %>
+
+  <%= f.submit "検索" %>
+<% end %>
 <h1>Foods</h1>
 
 <table>
@@ -63,10 +69,10 @@
         <td><%= food.price %></td>
         <td><%= food.stock %></td>
         <td><%= food.image %></td>
-        <td><%= link_to 'Show', food %></td>
+        <td><%= link_to 'Show', food_path(food) %></td>
         <%# <% if current_user.admin %>
           <td><%= link_to 'Edit', edit_food_path(food) %></td>
-          <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
         <%# <% end %>
     <% end %>
