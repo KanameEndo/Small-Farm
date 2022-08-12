@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<!--hero section -->
+<div class="hero vh-50 d-flex align-center" id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-7 mx-auto text-center">
+        <h2><%= current_user.name %>さんのお気に入り写真</h2>
+        <p><%= current_user.name %>さんのお気に入りに登録した写真の一覧です。</p>
+        <button class="btn btn-info ms-3"><%= link_to '新しく投稿する', new_blog_path %></button>
+        <button class="btn btn-outline-dark ms-3"><%= link_to "みんなの写真をみる", blogs_path %></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Photo section -->
+<section id="pictures">
+  <div class=" row">
+    <% @favorite_blogs.each do |blog|%>
+      <div class="col-lg-4 col-sm-6">
+        <div class="picture mt-4 card-effect">
+          <h5><%=blog.title %></h5>
+          <p><%= image_tag blog.image.url if blog.image.present? %></p>
+          <p><%= blog.content %></p>
+          <p><%= blog.user.name %></p>
+          <table>
+            <tbody>
+              <tr>
+                <% if blog.user == current_user %>
+                  <td><%= link_to '確認', blog %></td>
+                  <td><%= link_to "編集", edit_blog_path(blog) %></td>
+                  <td><%= link_to "削除", blog_path(blog), method: :delete %></td>
+                <% else %>
+                  <td><%= link_to '確認', blog %></td>
+                  <td></td>
+                  <td></td>
+                <% end %>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post 'favorite/:id' => 'favorites#create', as: 'create_favorite'
 
   resources :plans
-  resources :favorites, only: [:create, :destroy]
+  resources :favorites, only: [:favorites, :create, :destroy]
   root 'foods#index'
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

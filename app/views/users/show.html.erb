@@ -2,7 +2,7 @@
 <p>MyPage <%= @user.id %></p>
 <% if @favorite_list.present? %>
   <% @favorite_list.each do |food| %>
-    <%= food.title %>
+    <%= food.item_name %>
     <%= food.content %>
   <% end %>
 <% end %>
