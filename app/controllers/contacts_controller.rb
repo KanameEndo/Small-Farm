@@ -12,7 +12,7 @@ class ContactsController < ApplicationController
       render :new
     end
   end
-　
+
   # 入力内容に誤りがあった場合、
   # 入力内容を保持したまま前のページに戻るのが当たり前になっているかと思いますが、
   # backアクションを定義することで可能となります。

@@ -1,15 +1,29 @@
-<h1>Users#show</h1>
-<p>MyPage <%= @user.id %></p>
-<% if @favorite_list.present? %>
-  <% @favorite_list.each do |food| %>
-    <%= food.item_name %>
-    <%= food.comment %>
-    <%= image_tag food.image if food.image.attached? %>
-  <% end %>
-<% end %>
+<h1>MyPage <%= @user.id %></h1>
 
 <h3>ユーザー名</h3>
 <%= @user.name %>
 <h3>メールアドレス</h3>
 <%= @user.email %>
+
+<table>
+<% if @favorite_list.present? %>
+  <thead>
+    <tr>
+        <% @favorite_list.each do |food| %>
+          <td><%= food.item_name %></td>
+          <td><%= food.comment %></td>
+          <td><%= food.item_name %></td>
+          <td><%= food.variety %></td>
+          <td><%= food.comment %></td>
+          <td><%= food.storage_method %></td>
+          <td><%= food.harvest %></td>
+          <td><%= food.price %></td>
+          <td><%= food.stock %></td>
+          <td><%= image_tag food.image if food.image.attached? %></td>
+        <% end %>
+    </tr>
+  </thead>
+<% end %>
+</table>
+
 
