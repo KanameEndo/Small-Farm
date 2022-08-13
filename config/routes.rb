@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   resources :plans
   resources :favorites, only: [:favorites, :create, :destroy]
   root 'foods#index'
-  post '/foods/guest_sign_in', to: 'foods#guest_sign_in'
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
