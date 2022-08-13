@@ -330,6 +330,7 @@ DEPENDENCIES
   faker
   font-awesome-sass
   gimei
+  image_processing (~> 1.2)
   jbuilder (~> 2.7)
   letter_opener_web
   listen (~> 3.2)
