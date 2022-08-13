@@ -39,7 +39,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= image_tag @food.image.url if @food.image.present? %>
+  <%= image_tag @food.image if @food.image.attached? %>
 </p>
 
 <%= link_to 'Edit', edit_food_path(@food) %> |

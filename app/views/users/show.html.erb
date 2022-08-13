@@ -4,6 +4,7 @@
   <% @favorite_list.each do |food| %>
     <%= food.item_name %>
     <%= food.comment %>
+    <%= image_tag food.image if food.image.attached? %>
   <% end %>
 <% end %>
 

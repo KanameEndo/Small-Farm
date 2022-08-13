@@ -20,6 +20,8 @@ class FoodsController < ApplicationController
   end
 
   def create
+    food = Food.create!(food_params)
+
     @food = Food.new(food_params)
     if @food.save
       NoticeMailer.sendmail_food(@food).deliver_later
