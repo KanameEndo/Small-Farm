@@ -1,19 +1,4 @@
-<thead>
-  <tr>
-    <th><%=t('tasks.show.content')%></th>
-    <th>Variety</th>
-    <th>Comment</th>
-    <th>Storage method</th>
-    <th>Harvest</th>
-    <th>Price</th>
-    <th>Stock</th>
-    <th>Image</th>
-    <th colspan="3"></th>
-  </tr>
-</thead>
-<tbody>
-  <% @foods.each do |food| %>
-    <tr>
+
       <td><%= food.item_name %></td>
       <td><%= food.variety %></td>
       <td><%= food.comment %></td>
@@ -23,29 +8,26 @@
       <td><%= food.stock %></td>
       <%#= image_tag @food.image.url if @food.image.present? %>
       <td><%= link_to 'Show', food_path(food) %></td>
-      <%# <% if current_user == current_user.admin %>
+      <% if current_user&.admin %>
         <td><%= link_to 'Edit', edit_food_path(food) %></td>
         <td><%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-      <%# <% end %>
-  <% end %>
-</tbody>
+        <% end %>
+
+
 <% if !current_user%>
 <td>ログインしていません。</td>
   <% elsif current_user.favorited_by?(food.id) %>
   <td>
     <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
-      いいねを外す　<%# <i class="fa fa-heart unlike-btn"></i> %>
+      いいねを外す　 <i class="fa fa-heart unlike-btn"></i> 
     <% end %>
     <%= food.favorites.count %>
   </td>
 <% else %>
   <td>
     <%= link_to create_favorite_path(food), class: "favorite-link", method: :POST, remote: true do %>
-      いいねをする　<%# <i class="fa fa-heart like-btn"></i> %>
+      いいねをする　 <i class="fa fa-heart like-btn"></i> 
     <% end %>
     <%= food.favorites.count %>
   </td>
 <% end %>
-<td><%= link_to 'Show', food %></td>
-<td><%= link_to 'Destroy', food, metod: :delete, data: { confirm: 'Are you sure?' } %></td>

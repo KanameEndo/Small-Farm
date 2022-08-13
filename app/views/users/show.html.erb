@@ -3,7 +3,7 @@
 <% if @favorite_list.present? %>
   <% @favorite_list.each do |food| %>
     <%= food.item_name %>
-    <%= food.content %>
+    <%= food.comment %>
   <% end %>
 <% end %>
 

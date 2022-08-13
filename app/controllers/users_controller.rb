@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.find(params[:id])
+    @user = current_user
     @foods = @user.foods
 
     favorites = Favorite.where(user_id: current_user.id).pluck(:food_id)  # ログイン中のユーザーのお気に入りのFood_idカラムを取得
