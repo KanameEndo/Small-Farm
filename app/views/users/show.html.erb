@@ -8,22 +8,22 @@
 <table>
 <% if @favorite_list.present? %>
   <thead>
+    <% @favorite_list.each do |food| %>
     <tr>
-        <% @favorite_list.each do |food| %>
-          <td><%= food.item_name %></td>
-          <td><%= food.comment %></td>
-          <td><%= food.item_name %></td>
-          <td><%= food.variety %></td>
-          <td><%= food.comment %></td>
-          <td><%= food.storage_method %></td>
-          <td><%= food.harvest %></td>
-          <td><%= food.price %></td>
-          <td><%= food.stock %></td>
-          <td><%= image_tag food.image if food.image.attached? %></td>
-        <% end %>
-    </tr>
+      <td><%= food.item_name %></td>
+      <td><%= food.comment %></td>
+      <td><%= food.item_name %></td>
+      <td><%= food.variety %></td>
+      <td><%= food.comment %></td>
+      <td><%= food.storage_method %></td>
+      <td><%= food.harvest %></td>
+      <td><%= food.price %></td>
+      <td><%= food.stock %></td>
+      <td><%= image_tag food.image.variant(resize: "100") if food.image.attached? %></td>
+      </tr>
+    <% end %>
   </thead>
 <% end %>
 </table>
-
+<%= link_to "プロフィール編集", edit_user_path(current_user) %>
 
