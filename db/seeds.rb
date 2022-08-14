@@ -82,7 +82,7 @@ Food.create!(
   updated_at:        "2021-01-01 00:00:00"
   )
 
-管理者生成
+# 管理者生成
 User.create!(
   name:              '管理者01',
   email:             'admin@example.com',
