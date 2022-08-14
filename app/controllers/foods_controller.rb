@@ -1,13 +1,15 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy, :create]
+  before_action :check_admin, only: [:new, :edit, :update, :destroy, :create]
 
   def index
-    @foods = Food.all
+    @q = Food.ransack(params[:q])
+    @foods = @q.result(distinct: true)
   end
 
   def show
-    @favorite = current_user.favorites.find_by(food_id: @food.id)
+    @favorite = Favorite.find_by(food_id: @food.id)
   end
 
   def new
@@ -18,6 +20,8 @@ class FoodsController < ApplicationController
   end
 
   def create
+    food = Food.create!(food_params)
+
     @food = Food.new(food_params)
     if @food.save
       NoticeMailer.sendmail_food(@food).deliver_later
@@ -52,6 +56,11 @@ class FoodsController < ApplicationController
     end
 
     def food_params
-      params.require(:food).permit(:item_name, :variety, :comment, :storage_method, :harvest, :price, :stock, :image)
+      params.require(:food).permit(:item_name, :variety, :comment, :storage_method, :harvest, :price, :stock, :image, :image_cache)
+    end
+
+    def check_admin
+      return if current_user.admin
+      redirect_to root_path
     end
 end

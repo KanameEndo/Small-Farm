@@ -1,16 +1,20 @@
 class FavoritesController < ApplicationController
-  def new
-    favorite = current_user.favorite.food.user.image(food_id: params[:food_id])
-    redirect_to foods_path, notice: "#{favorite.food.user.name}お気に入り登録しました！"
+  before_action :set_food
+  before_action :authenticate_user!
+
+  def index
+    @foods = Food.includes(:food_images).order("created_at DESC")
   end
 
   def create
-    favorite = current_user.favorites.create(food_id: params[:food_id])
-    redirect_to foods_path, notice: "#{favorite.food.user.name}お気に入り登録しました！"
+    Favorite.create(user_id: current_user.id, food_id: params[:id])
   end
 
   def destroy
-    favorite = current_user.favorites.find_by(id: params[:id])
-    redirect_to foods_path, notice: "#{favorite.food.user.name}記事を解除しました！"
+    Favorite.find_by(user_id: current_user.id, food_id: params[:id]).destroy
+  end
+
+  def set_food
+    @food = Food.find_by(id: params[:id])
   end
 end

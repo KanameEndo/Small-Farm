@@ -1,10 +1,6 @@
-<% unless @food.user_id == current_user.id %>
-  <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'お気に入りする', favorites_path(food_id: @food.id), method: :post, class: 'btn btn-primary' %>
-  <% end %>
-<% end %>
+<div class="favorites" id="favorite_<%= @food.id %>">
+  <%= render 'favorites/favorite', food: @food %>
+</div>
 
 <p>
   <strong>Item name:</strong>
@@ -43,7 +39,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @food.image %>
+  <%= image_tag @food.image if @food.image.attached? %>
 </p>
 
 <%= link_to 'Edit', edit_food_path(@food) %> |

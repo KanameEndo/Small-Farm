@@ -48,7 +48,8 @@
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.text_field :image %>
+    <%= form.file_field :image %>
+    <%# <%= image_tag @food.image.url if @food.image.present? %>
   </div>
 
   <div class="actions">
