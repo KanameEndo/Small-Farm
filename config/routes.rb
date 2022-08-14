@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get 'maps/index'
   get 'users/show'
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { registrations: 'users/registrations',passwords: 'users/passwords'}
   # 以下を追加
   devise_scope :user do
