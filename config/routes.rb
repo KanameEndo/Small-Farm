@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'maps/index'
   get 'users/show'
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: { registrations: 'users/registrations',passwords: 'users/passwords'}
@@ -25,4 +26,6 @@ Rails.application.routes.draw do
   post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
   post 'contacts/back', to: 'contacts#back', as: 'back'
   get 'done', to: 'contacts#done', as: 'done'
+
+  resources :maps, only: [:index]
 end
