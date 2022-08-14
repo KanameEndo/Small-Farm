@@ -42,6 +42,7 @@ gem 'font-awesome-sass'
 gem "dotenv-rails"
 gem "aws-sdk-s3", require: false
 gem 'kaminari'
+gem 'sendgrid-ruby'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

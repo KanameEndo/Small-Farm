@@ -237,6 +237,7 @@ GEM
       rake (>= 0.8.0)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
+    ruby_http_client (3.5.5)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -254,6 +255,8 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     semantic_range (3.0.0)
+    sendgrid-ruby (6.6.2)
+      ruby_http_client (~> 3.4)
     simple_calendar (2.4.3)
       rails (>= 3.0)
     spring (2.1.1)
@@ -332,6 +335,7 @@ DEPENDENCIES
   rexml
   sass-rails (>= 6)
   selenium-webdriver
+  sendgrid-ruby
   simple_calendar (~> 2.0)
   spring
   spring-watcher-listen (~> 2.0.0)

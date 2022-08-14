@@ -5,7 +5,7 @@ class NoticeMailer < ApplicationMailer
   #
   #   en.notice_mailer.sendmail_food.subject
   #
-  default from: 'from@example.com'
+  default from: 'uchiyama.farmhosoe@gmail.com'
   def sendmail_food(food)
     @food = food
 
