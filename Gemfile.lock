@@ -335,6 +335,7 @@ DEPENDENCIES
   gimei
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
+  kaminari
   letter_opener_web
   listen (~> 3.2)
   meta_request

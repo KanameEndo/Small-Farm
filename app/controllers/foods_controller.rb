@@ -6,6 +6,7 @@ class FoodsController < ApplicationController
   def index
     @q = Food.ransack(params[:q])
     @foods = @q.result(distinct: true)
+    @foods = @foods.page(params[:page]).per(6)
   end
 
   def show
