@@ -29,7 +29,6 @@ gem 'image_processing', '~> 1.2'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'rexml'
-gem 'devise'
 gem 'devise-i18n'
 gem 'rails_admin'
 gem 'cancancan'
