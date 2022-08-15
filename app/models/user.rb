@@ -17,7 +17,7 @@ class User < ApplicationRecord
     end
   end
 
-  def self.admin
+  def admin
     find(email: 'admin@example.com') do
       user.password = "admin01"
       user.name = "管理者01"
