@@ -19,7 +19,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.contact_mail(@contact).deliver
-      redirect_to contacts_path, notice: '正常に動きました'
+      redirect_to new_contact_path, notice: '正常に動きました'
     else
       render :new
     end
