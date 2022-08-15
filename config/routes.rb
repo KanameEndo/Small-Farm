@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'maps/index'
   get 'users/show'
   devise_for :users, controllers: { registrations: 'users/registrations',passwords: 'users/passwords'}
   # 以下を追加
@@ -29,4 +28,5 @@ Rails.application.routes.draw do
   # get 'done', to: 'contacts#done', as: 'done'
 
   resources :maps, only: [:index]
+  resources :others, only: [:index]
 end
