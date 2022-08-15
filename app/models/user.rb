@@ -17,12 +17,12 @@ class User < ApplicationRecord
     end
   end
 
-  def admin
-    find(email: 'admin@example.com') do
-      user.password = "admin01"
-      user.name = "管理者01"
-    end
-  end
+  # def admin
+  #   find(email: 'admin@example.com') do
+  #     user.password = "admin01"
+  #     user.name = "管理者01"
+  #   end
+  # end
 
   validates :name, presence: true #追記
 

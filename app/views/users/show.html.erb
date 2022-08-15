@@ -20,10 +20,25 @@
       <td><%= food.price %></td>
       <td><%= food.stock %></td>
       <td><%= image_tag food.image.variant(resize: "100") if food.image.attached? %></td>
+
+    <% if current_user.favorited_by?(food.id) %>
+      <td>
+        <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
+          いいねを外す　 <i class="fa fa-heart unlike-btn"></i> 
+        <% end %>
+        <%= food.favorites.count %>
+      </td>
+      <% elsif %>
+      <td>
+        <%= link_to create_favorite_path(food), class: "favorite-link", method: :POST, remote: true do %>
+          いいねをする　 <i class="fa fa-heart like-btn"></i> 
+        <% end %>
+        <%= food.favorites.count %>
+      </td>
+      <% end %>
       </tr>
     <% end %>
   </thead>
 <% end %>
 </table>
 <%= link_to "プロフィール編集", edit_user_path(current_user) %>
-
