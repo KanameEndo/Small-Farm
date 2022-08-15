@@ -18,9 +18,9 @@ class User < ApplicationRecord
   end
 
   def self.admin
-    find(email: 'admin@example.com') do |user|
-      user.password = "admin01"
-      user.name = "管理者01"
+    find(email: 'admin@example.jp') do |user|
+      user.password = "11111111"
+      user.name = "管理者02"
     end
   end
 
