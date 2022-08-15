@@ -9,6 +9,6 @@ class NoticeMailer < ApplicationMailer
   def sendmail_food(food)
     @food = food
 
-    mail to: 'hogehoge@gmail.com', subject: '【内山農園より】収穫日のお知らせ'
+    mail to: 'uchiyama.travail@gmail.com', subject: '【内山農園より】収穫日のお知らせ'
   end
 end
