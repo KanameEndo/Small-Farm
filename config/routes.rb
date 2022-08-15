@@ -21,12 +21,7 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
-  resources :contacts, only: [:index, :create, :done]
-  post 'contacts/confirm', to: 'contacts#confirm', as: 'confirm'
-  post 'contacts/back', to: 'contacts#back', as: 'back'
-  post 'contacts/done', to: 'contacts#done', as: 'done'
-  # get 'done', to: 'contacts#done', as: 'done'
-
+  resources :contacts, only: [:new, :create, :destroy]
   resources :maps, only: [:index]
   resources :others, only: [:index]
 end

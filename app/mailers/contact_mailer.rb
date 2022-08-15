@@ -1,13 +1,11 @@
 class ContactMailer < ApplicationMailer
 
-  default from: 'noreply@example.com'
-  default to: 'admin@example.com'
+  default from: 'uchiyama.farmhosoe@gmail.com'
+  default to: 'uchiyama.travail@gmail.com'
   layout 'mailer'
 
-  def send_mail(contact)
+  def contact_mail(contact)
     @contact = contact
-    mail(from: contact.email, to: ENV['MAIL_ADDRESS'], subject: 'Webサイトより問い合わせが届きました') do |format|
-      format.text
-    end
+    mail to:   ENV['MAIL_ADDRESS'], subject: '【お問い合わせ】'
   end
 end

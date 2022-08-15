@@ -1,30 +1,40 @@
 class ContactsController < ApplicationController
+  before_action :set_contact, only: [:show, :edit, :update, :destroy]
+
   def index
+    @contacts = Contact.all
+  end
+
+  def show
+  end
+
+  def new
     @contact = Contact.new
   end
 
-  def confirm
+  def edit
+  end
+
+  def create
     @contact = Contact.new(contact_params)
-    if @contact.valid?
-      render confirm_path
+    if @contact.save
+      ContactMailer.contact_mail(@contact).deliver
+      redirect_to contacts_path, notice: '正常に動きました'
     else
-      render contacts_path
+      render :new
     end
   end
 
-  def done
-    @contact = Contact.new(contact_params)
-    if params[:back]
-      render contacts_path
-    else
-      ContactMailer.send_mail(@contact).deliver_now
-      render done_path
-    end
+  def destroy
+    @contact.destroy
   end
 
   private
+    def set_contact
+      @contact = Contact.find(params[:id])
+    end
 
-  def contact_params
-    params.require(:contact).permit(:name, :email, :content)
-  end
+    def contact_params
+      params.require(:contact).permit(:name, :email, :message)
+    end
 end
