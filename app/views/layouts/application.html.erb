@@ -20,7 +20,8 @@
       <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
       <%= link_to '管理者ログイン（閲覧用）', users_admin_sign_in_path, method: :post %>
     <% end %>
-    <p><i class="fa-light env-btn fa-envelope"></i></p>
+    <i class="fa-light env-btn fa-envelope"></i>
+    <i class="fa-light fa-magnifying-glass"></i>
 
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>

@@ -11,8 +11,6 @@
     <% @favorite_list.each do |food| %>
     <tr>
       <td><%= food.item_name %></td>
-      <td><%= food.comment %></td>
-      <td><%= food.item_name %></td>
       <td><%= food.variety %></td>
       <td><%= food.comment %></td>
       <td><%= food.storage_method %></td>
@@ -20,25 +18,32 @@
       <td><%= food.price %></td>
       <td><%= food.stock %></td>
       <td><%= image_tag food.image.variant(resize: "100") if food.image.attached? %></td>
+      <td><%= link_to 'Show', food_path(food) %></td>
+      <% if current_user&.admin %>
+        <td><%= link_to 'Edit', edit_food_path(food) %></td>
+        <td><%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
 
-    <% if current_user.favorited_by?(food.id) %>
-      <td>
-        <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
-          いいねを外す　 <i class="fa fa-heart unlike-btn"></i> 
-        <% end %>
-        <%= food.favorites.count %>
-      </td>
-      <% elsif %>
-      <td>
-        <%= link_to create_favorite_path(food), class: "favorite-link", method: :POST, remote: true do %>
-          いいねをする　 <i class="fa fa-heart like-btn"></i> 
-        <% end %>
-        <%= food.favorites.count %>
-      </td>
+      <% if !current_user%>
+      <td>ログインしていません。</td>
+        <% elsif current_user.favorited_by?(food.id) %>
+        <td>
+          <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
+            いいねを外す　 <i class="fa fa-heart unlike-btn fa-lg"></i>
+          <% end %>
+          <%= food.favorites.count %>
+        </td>
+      <% else %>
+        <td>
+          <%= link_to create_favorite_path(food), class: "favorite-link", method: :POST, remote: true do %>
+            いいねをする　 <i class="fa fa-heart like-btn fa-lg"></i> 
+          <% end %>
+          <%= food.favorites.count %>
+        </td>
       <% end %>
-      </tr>
-    <% end %>
+    </tr>
   </thead>
 <% end %>
 </table>
 <%= link_to "プロフィール編集", edit_user_path(current_user) %>
+<% end %>
