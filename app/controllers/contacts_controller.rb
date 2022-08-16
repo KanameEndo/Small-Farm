@@ -19,11 +19,15 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.contact_mail(@contact).deliver
-      redirect_to new_contact_path, notice: '正常に動きました'
+      redirect_to new_contact_path, notice: 'Contact was successfully created.'
     else
       render :new
     end
   end
+
+  # def confirm
+  #   @contact = Contact.new(contact_params)
+  # end
 
   def destroy
     @contact.destroy

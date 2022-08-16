@@ -21,7 +21,7 @@ Rails.application.routes.draw do
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
-  resources :contacts, only: [:new, :create, :destroy]
+  resources :contacts, only: [:new, :create, :destroy] 
   resources :maps, only: [:index]
   resources :others, only: [:index]
 end

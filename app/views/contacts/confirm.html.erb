@@ -1,0 +1,12 @@
+<h3>以下の内容で、送信する。</h3>
+
+<%= form_with(model: @contact, local: true) do |form| %>
+  <%= form.hidden_field :name %>
+  <%= form.hidden_field :email %>
+  <%= form.hidden_field :message %>
+
+  <p>お名前:<%= @contact.name %></p>
+  <p>メールアドレス:<%= @contact.email %></p>
+  <p>内容:<%= @contact.message %></p>
+  <%= form.submit  "送信" %>
+<% end %>

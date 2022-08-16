@@ -4,6 +4,7 @@ class FoodsController < ApplicationController
   before_action :check_admin, only: [:new, :edit, :update, :destroy, :create]
 
   def index
+    @foods = Food.all.order(created_at: :desc)
     @q = Food.ransack(params[:q])
     @foods = @q.result(distinct: true)
     @foods = @foods.page(params[:page]).per(6)
