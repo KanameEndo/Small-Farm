@@ -1,6 +1,4 @@
 class PlansController < ApplicationController
-  before_action :check_admin, only: [:new, :edit, :update, :destroy, :create]
-
   def index
     @plans = Plan.all
     @plan = Plan.new
@@ -15,7 +13,8 @@ class PlansController < ApplicationController
   end
 
   def create
-    Plan.create(plan_parameter)
+    @plan = current_user.plans.build(plan_parameter)
+    @plan.save
     redirect_to plans_path
   end
 
@@ -42,11 +41,6 @@ class PlansController < ApplicationController
 
   def plan_parameter
     params.require(:plan).permit(:title, :content, :start_time)
-  end
-
-  def check_admin
-    return if current_user.admin
-    redirect_to root_path
   end
 
 end

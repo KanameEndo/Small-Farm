@@ -17,14 +17,14 @@
   <% elsif current_user.favorited_by?(food.id) %>
   <td>
     <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
-      いいねを外す　 <i class="fa fa-heart unlike-btn"></i> 
+      いいねを外す　 <i class="fa fa-heart unlike-btn fa-lg"></i>
     <% end %>
     <%= food.favorites.count %>
   </td>
 <% else %>
   <td>
     <%= link_to create_favorite_path(food), class: "favorite-link", method: :POST, remote: true do %>
-      いいねをする　 <i class="fa fa-heart like-btn"></i> 
+      いいねをする　 <i class="fa fa-heart like-btn fa-lg"></i> 
     <% end %>
     <%= food.favorites.count %>
   </td>

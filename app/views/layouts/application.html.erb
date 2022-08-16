@@ -7,6 +7,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
   </head>
 
   <body>
@@ -19,6 +20,7 @@
       <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
       <%= link_to '管理者ログイン（閲覧用）', users_admin_sign_in_path, method: :post %>
     <% end %>
+    <p><i class="fa-light env-btn fa-envelope"></i></p>
 
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
