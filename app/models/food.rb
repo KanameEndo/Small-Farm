@@ -7,4 +7,9 @@ class Food < ApplicationRecord
   has_one_attached :image do |attachable|
     attachable.variant :thumb, resize_to_limit: [100, 100]
   end
+
+  validates :item_name,  presence: true, length: { maximum: 255 }
+  validates :comment,  presence: true, length: { maximum: 255 }
+  validates :harvest,  presence: true, length: { maximum: 255 }
+  validates :price,  presence: true
 end

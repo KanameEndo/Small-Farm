@@ -1,4 +1,15 @@
 <h1>New Food</h1>
+<% if @food.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@food.errors.count, "error") %> prohibited this <%= @food.name %> from being saved:</h2>
+    <ul>
+    <% @food.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 
 <%= render 'form', food: @food %>
 
