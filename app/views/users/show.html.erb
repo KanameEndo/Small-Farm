@@ -3,6 +3,7 @@
     <td><%= current_user.name %></td>
     <td><%= current_user.email %></td>
     <td><%= link_to "プロフィール編集", edit_user_path(current_user) %></td>
+    <td><%= link_to "今後のスケジュール", plans_path(current_user) %></td>
   <tr>
 </table>
 
