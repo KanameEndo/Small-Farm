@@ -1,9 +1,10 @@
-<h1>MyPage <%= @user.id %></h1>
-
-<h3>ユーザー名</h3>
-<%= @user.name %>
-<h3>メールアドレス</h3>
-<%= @user.email %>
+<table>
+  <tr>
+    <td><%= current_user.name %></td>
+    <td><%= current_user.email %></td>
+    <td><%= link_to "プロフィール編集", edit_user_path(current_user) %></td>
+  <tr>
+</table>
 
 <table>
 <% if @favorite_list.present? %>
@@ -45,5 +46,4 @@
   </thead>
 <% end %>
 </table>
-<%= link_to "プロフィール編集", edit_user_path(current_user) %>
 <% end %>

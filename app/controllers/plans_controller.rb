@@ -14,8 +14,11 @@ class PlansController < ApplicationController
 
   def create
     @plan = current_user.plans.build(plan_parameter)
-    @plan.save
-    redirect_to plans_path
+    if @plan.save
+      redirect_to plans_path
+    else
+      render :new
+    end
   end
 
   def destroy

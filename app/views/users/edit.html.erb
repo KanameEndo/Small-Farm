@@ -1,7 +1,16 @@
 <h1>プロフィール編集</h1>
-
-<%= form_with model: @user do |form| %>
-  <div>ユーザー名<%= form.text_field :name %></div>
-  <div>メールアドレス<%= form.email_field :email %></div>
-  <div><%= form.submit "保存" %></div>
-<% end %>
+<table>
+  <%= form_with model: @user do |form| %>
+    <tr>
+      <td>ユーザー名
+      <td><%= form.text_field :name %></td>
+    </tr>
+    <tr>
+      <td>メールアドレス
+      <td><%= form.email_field :email %></td>
+    </tr>
+    <tr>
+      <td><%= form.submit "保存" %></td>
+    </tr>
+  <% end %>
+<table>
