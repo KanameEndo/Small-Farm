@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SmallFarm</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>内山農園 in 細江</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,8 +12,19 @@
   </head>
 
   <body>
+    <header id="header">
+      <h1>Logo</h1>
+        <nav id="g-navi">
+          <ul>
+            <li><a href="#area-1">ログイン</a></li>
+            <li><a href="#area-2">アクセス</a></li>
+            <li><a href="#area-3">お問い合わせ</a></li>
+          </ul>
+        </nav>
+    </header>
+    <div class="logo"><img src="/assets/uchiyamafarmlogo.png" alt=""></div>
+
     <% if user_signed_in? %>
-      <%# <%= link_to "新規登録", foods_path %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "新規登録", new_user_registration_path %>
@@ -20,8 +32,7 @@
       <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
       <%= link_to '管理者ログイン（閲覧用）', users_admin_sign_in_path, method: :post %>
     <% end %>
-    <i class="fa-light env-btn fa-envelope"></i>
-    <i class="fa-light fa-magnifying-glass"></i>
+    <p><i class="fa-light env-btn fa-envelope"></i></p>
 
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
@@ -30,5 +41,7 @@
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
     <%= yield %>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
   </body>
 </html>
