@@ -9,16 +9,12 @@
   <%= f.submit "検索" %>
 <% end %>
 </div>
-<div><% if current_user&.admin %>
-  <%= link_to 'New Food', new_food_path %>
-<% end %>
-</div>
 
-<div class="food-container">
   <% @foods.each do |food| %>
+  <div class="food-container">
     <table id="food_<%= food.id %>">
       <tr>
-        <td><%= image_tag food.image.variant(resize: "225") if food.image.attached? %></td>
+        <td><%= link_to (food_path(food)) do%><%= image_tag food.image.variant(resize: "225") if food.image.attached? %><% end %></td>
       </tr>
       <tr>
         <td><%= food.item_name %></td>
@@ -32,10 +28,10 @@
       <tr>
         <td><%= food.price %></td>
       </tr>
-      <tr>
-        <td><%= link_to 'Show', food_path(food) %></td>
-      </tr>
       <% if current_user&.admin %>
+        <tr>
+          <td><%= link_to 'Show', food_path(food) %></td>
+        </tr>
         <tr>
           <td><%= link_to 'Edit', edit_food_path(food) %></td>
         </tr>
@@ -64,7 +60,8 @@
       <% end %>
       </tr>
     </table>
+    </div>
   <% end %>
-</div>
+
 
 <%= paginate @foods %>
