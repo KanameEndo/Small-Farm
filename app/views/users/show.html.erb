@@ -3,7 +3,10 @@
     <td><%= current_user.name %></td>
     <td><%= current_user.email %></td>
     <td><%= link_to "プロフィール編集", edit_user_path(current_user) %></td>
-    <td><%= link_to "今後のスケジュール", plans_path(current_user) %></td>
+    <td><% if current_user&.admin %>
+        <%= link_to "今後のスケジュール", plans_path(current_user) %>
+          <%= link_to 'New Food', new_food_path %>
+        <% end %></td>
   <tr>
 </table>
 
@@ -11,7 +14,7 @@
 <% if @favorite_list.present? %>
   <thead>
     <% @favorite_list.each do |food| %>
-    <tr>
+    <tr id="food_<%= food.id %>">
       <td><%= food.item_name %></td>
       <td><%= food.variety %></td>
       <td><%= food.comment %></td>
