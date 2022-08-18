@@ -20,7 +20,7 @@
     <td><%= food.variety %></td>
     <td><%= food.harvest %></td>
     <td><%= food.price %></td>
-    <td><%= image_tag food.image.variant(resize: "100") if food.image.attached? %></td>
+    <td><%= image_tag food.image.variant(resize: "200") if food.image.attached? %></td>
     <td><%= link_to 'Show', food_path(food) %></td>
     <% if current_user&.admin %>
       <td><%= link_to 'Edit', edit_food_path(food) %></td>
