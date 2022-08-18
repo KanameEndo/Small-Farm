@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     # @user = current_user
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to users_show_path(@user.id), notice:'プロフィール編集しました'
+      redirect_to users_show_path(@user.id)
     else
       render :edit
     end
