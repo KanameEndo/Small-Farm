@@ -2,11 +2,11 @@
   <tr>
     <td><%= food.item_name %></td>
     <td><%= food.variety %></td>
-    <td><%= food.comment %></td>
-    <td><%= food.storage_method %></td>
+    <%# <td><%= food.comment %></td>
+    <%# <td><%= food.storage_method %></td>
     <td><%= food.harvest %></td>
     <td><%= food.price %></td>
-    <td><%= food.stock %></td>
+    <%# <td><%= food.stock %></td>
     <td><%= image_tag food.image.variant(resize: "100") if food.image.attached? %></td>
     <td><%= link_to 'Show', food_path(food) %></td>
     <% if current_user&.admin %>

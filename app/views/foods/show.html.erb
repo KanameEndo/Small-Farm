@@ -1,7 +1,3 @@
-<div class="favorites" id="favorite_<%= @food.id %>">
-  <%= render 'favorites/favorite', food: @food %>
-</div>
-
 <p>
   <strong>Item name:</strong>
   <%= @food.item_name %>
@@ -41,6 +37,7 @@
   <strong>Image:</strong>
   <%= image_tag @food.image if @food.image.attached? %>
 </p>
-
-<%= link_to 'Edit', edit_food_path(@food) %> |
 <%= link_to 'Back', foods_path %>
+<% if current_user&.admin %>
+<%= link_to 'Edit', edit_food_path(@food) %>
+<% end %>
