@@ -264,6 +264,9 @@ footer {
   background: #e5e5e5;
   text-align: center;
   padding: 30px;
+  /*←絶対位置*/
+  bottom: 0;
+  /*下に固定*/
 }
 
 footer a {
