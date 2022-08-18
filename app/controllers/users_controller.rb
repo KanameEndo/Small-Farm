@@ -1,5 +1,18 @@
 class UsersController < ApplicationController
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+        redirect_to user_path(@user.id)
+      else
+        render :new
+    end
+  end
+
   def show
     @user = current_user
     @foods = @user.foods
@@ -9,13 +22,15 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = current_user
+    # @user = current_user
+    @user = User.find(params[:id])
   end
 
   def update
-    @user = current_user
+    # @user = current_user
+    @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path
+      redirect_to user_path(@user.id), notice:'編集しました'
     else
       render :edit
     end

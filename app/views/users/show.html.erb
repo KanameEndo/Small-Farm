@@ -1,8 +1,13 @@
+<h3><%= current_user.name %> マイページ</h3>
+
 <table>
   <tr>
-    <td><%= current_user.name %></td>
-    <td><%= current_user.email %></td>
-    <td><%= link_to "プロフィール編集", edit_user_path(current_user) %></td>
+    <td>お名前：<%= current_user.name %></td>
+  </tr>
+  <tr>
+    <td>メールアドレス：<%= current_user.email %></td>
+  </tr>
+    <td><%= link_to "プロフィール編集", edit_user_path(current_user), data: {"turbolinks" => false} %></td>
     <td><% if current_user&.admin %>
         <%= link_to "今後のスケジュール", plans_path(current_user) %>
           <%= link_to 'New Food', new_food_path %>
@@ -17,11 +22,11 @@
     <tr id="food_<%= food.id %>">
       <td><%= food.item_name %></td>
       <td><%= food.variety %></td>
-      <td><%= food.comment %></td>
-      <td><%= food.storage_method %></td>
+      <%# <><%= food.comment %>
+      <%# <><%= food.storage_method %>
       <td><%= food.harvest %></td>
       <td><%= food.price %></td>
-      <td><%= food.stock %></td>
+      <%# <><%= food.stock %>
       <td><%= image_tag food.image.variant(resize: "100") if food.image.attached? %></td>
       <td><%= link_to 'Show', food_path(food) %></td>
       <% if current_user&.admin %>

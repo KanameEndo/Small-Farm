@@ -13,20 +13,20 @@
 
 <table class="formTable">
   <tr>
-    <th><%= form.label :name %></th>
+    <th><%= form.label :お名前 %></th>
     <td><%= form.text_field :name %></td>
   </tr>
   <tr>
-    <th><%= form.label :email %></th>
+    <th><%= form.label :メールアドレス %></th>
     <td><%= form.text_field :email %></td>
   </tr>
   <tr>
-    <th><%= form.label :message %></th>
+    <th><%= form.label :お問い合わせ内容 %></th>
     <td><%= form.text_area :message %></td>
   </tr>
 </table>
 
 <div class="actions">
-  <%= form.submit %>
+  <%= form.submit  "送信" %>
 </div>
 <% end %>
