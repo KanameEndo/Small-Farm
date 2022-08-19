@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-  .food-container {
+.food-container {
   float: left;
   width: 225px;
   margin: 5px;
@@ -16,13 +16,17 @@
   width: auto;
   height: 500;
   border-radius: 20% 10% 20% 11% / 28% 23% 27% 23%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .slick-list {
-  width: 960px;
+  max-width: 960px;
   margin: 0 auto;
   text-align: center;
+}
+
+.slick-list .top_main {
+  width: 100%;
 }
 
 .concept-container {
@@ -37,7 +41,14 @@
   margin-top: 1rem;
 }
 
+.field-input input {
+  border-radius: 10px;
+}
+
+.field textarea {
+  border-radius: 10px;
+}
 
 @media screen and (max-width: 480px) {
-	/* 480px以下に適用されるCSS（スマホ用） */
+  /* 480px以下に適用されるCSS（スマホ用） */
 }
