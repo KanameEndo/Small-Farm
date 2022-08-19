@@ -28,10 +28,17 @@ body {
   margin-bottom: 100px;
 }
 
+h1 {
+  font-size: 1.5rem;
+}
 
-.slick-list {
+h3 {
+  font-size: 1.5rem;
+}
+
+.foodsTop-container {
+  overflow: hidden;
   margin: 0 auto;
-  text-align: center;
 }
 
 .logo_img {
@@ -46,7 +53,10 @@ body {
 
 .container {
   margin: 0 auto;
+  width: 970px;
 }
+
+
 
 .search_container {
   box-sizing: border-box;
@@ -83,13 +93,6 @@ body {
   outline: none;
 }
 
-.concept-container {
-  width: 0 auto;
-}
-
-.concept {
-  width: 950px;
-}
 
 /*========= 途中からハンバーガーメニューに変化するのためのCSS ===============*/
 /*========= ボタンのためのCSS ===============*/
@@ -268,6 +271,21 @@ body {
   letter-spacing: 0.1em;
   font-weight: bold;
   transition: all 0.3s;
+}
+
+.food-container {
+  float: left;
+  width: 225px;
+  margin: 5px;
+  border-radius: 5px 5px 5px 5px;
+  object-fit: cover;
+  border: 0.5px solid;
+  border-color: #c0c0c0;
+}
+
+.form-groups {
+  width: 480px;
+  margin: 0 auto;
 }
 
 

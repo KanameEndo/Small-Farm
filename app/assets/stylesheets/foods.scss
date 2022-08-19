@@ -1,3 +1,43 @@
 // Place all the styles related to the Foods controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+  .food-container {
+  float: left;
+  width: 225px;
+  margin: 5px;
+  border-radius: 5px 5px 5px 5px;
+  object-fit: cover;
+  border: 0.5px solid;
+  border-color: #c0c0c0;
+}
+
+.top_main {
+  width: auto;
+  height: 500;
+  border-radius: 20% 10% 20% 11% / 28% 23% 27% 23%;
+  object-fit: cover;
+}
+
+.slick-list {
+  width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.concept-container {
+  width: 0 auto;
+}
+
+.concept {
+  width: auto;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 170%;
+  margin-top: 1rem;
+}
+
+
+@media screen and (max-width: 480px) {
+	/* 480px以下に適用されるCSS（スマホ用） */
+}
