@@ -1,5 +1,9 @@
+<div class="form-groups">
 <h1><%= @food.item_name %> の詳細</h1>
-
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @food.image.variant(resize: "460") if @food.image.attached? %>
+</p>
 <p>
   <strong>Item name:</strong>
   <%= @food.item_name %>
@@ -35,11 +39,9 @@
   <%= @food.stock %>
 </p>
 
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @food.image if @food.image.attached? %>
-</p>
+
 <%= link_to 'Back', foods_path %>
 <% if current_user&.admin %>
 <%= link_to 'Edit', edit_food_path(@food) %>
 <% end %>
+</div>
