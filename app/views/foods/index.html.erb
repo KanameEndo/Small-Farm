@@ -10,6 +10,7 @@
 <% end %>
 </div>
 
+<div class="foodsTop-container">
   <% @foods.each do |food| %>
   <div class="food-container">
     <table id="food_<%= food.id %>">
@@ -62,6 +63,6 @@
     </table>
     </div>
   <% end %>
-
+</div>
 
 <%= paginate @foods %>

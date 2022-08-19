@@ -36,7 +36,10 @@ h3 {
   font-size: 1.5rem;
 }
 
-
+.foodsTop-container {
+  overflow: hidden;
+  margin: 0 auto;
+}
 
 .slick-list {
   margin: 0 auto;
@@ -55,6 +58,7 @@ h3 {
 
 .container {
   margin: 0 auto;
+  width: 970px;
 }
 
 .search_container {
