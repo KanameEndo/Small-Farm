@@ -1,66 +1,87 @@
 <p id="notice"><%= notice %></p>
-<div class="slick-list"><img class="top_main" src="/assets/main.png" alt="">
+
+<div class="slick-list">
+  <img class="top_main" src="/assets/main.png" alt="">
 </div>
+
 <h1 class="concept">内山農園ではSDGsの一環としてフードマイレージに取り組んでます。</br>お近くに住む方たちに、採れたての野菜をお手頃価格でご提供しております。</br>フードマイレージの取り組として、収穫予定日を予めお知らせし、 ご来店いただいた方順に販売しています。</h1>
-<h1>9月の収穫情報</h1>
-<div><%= search_form_for @q do |f| %>
-  <%= f.label :item_name_or_variety_or_comment_or_storage_method_or_harvest_or_price_cont, "キーワード検索" %>
-  <%= f.search_field :item_name_or_variety_or_comment_or_storage_method_or_harvest_or_price_cont %>
-  <%= f.submit "検索" %>
-<% end %>
+<h2>9月の収穫情報</h2>
+<div>
+  <%= search_form_for @q do |f| %>
+    <%= f.label :item_name_or_variety_or_comment_or_storage_method_or_harvest_or_price_cont, "キーワード検索" %>
+    <%= f.search_field :item_name_or_variety_or_comment_or_storage_method_or_harvest_or_price_cont %>
+    <%= f.submit "検索" %>
+  <% end %>
 </div>
 
 <div class="foodsTop-container">
   <% @foods.each do |food| %>
-  <div class="food-container">
-    <table id="food_<%= food.id %>">
-      <tr>
-        <td><%= link_to (food_path(food)) do%><%= image_tag food.image.variant(resize: "225") if food.image.attached? %><% end %></td>
-      </tr>
-      <tr>
-        <td><%= food.item_name %></td>
-      </tr>
-      <tr>
-        <td><%= food.variety %></td>
-      </tr>
-      <tr>
-        <td><%= food.harvest %></td>
-      </tr>
-      <tr>
-        <td><%= food.price %></td>
-      </tr>
-      <% if current_user&.admin %>
+    <div class="food-container">
+      <table id="food_<%= food.id %>">
         <tr>
-          <td><%= link_to 'Show', food_path(food) %></td>
+          <td>
+            <%= link_to (food_path(food)) do%>
+              <%= image_tag food.image.variant(resize: "225") if food.image.attached? %>
+            <% end %>
+          </td>
         </tr>
         <tr>
-          <td><%= link_to 'Edit', edit_food_path(food) %></td>
+          <td>
+            <%= food.item_name %>
+          </td>
         </tr>
         <tr>
-          <td><%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td>
+            <%= food.variety %>
+          </td>
         </tr>
-      <% end %>
-
-      <% if !current_user%>
-      <tr>
-        <td>ログインしていません。</td>
-          <% elsif current_user.favorited_by?(food.id) %>
-        <td>
-          <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
-            <i class="fa fa-heart unlike-btn fa-lg"></i>
+        <tr>
+          <td>
+            <%= food.harvest %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= food.price %>
+          </td>
+        </tr>
+        <% if current_user&.admin %>
+          <tr>
+            <td>
+              <%= link_to 'Show', food_path(food) %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to 'Edit', edit_food_path(food) %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %>
+            </td>
+          </tr>
+        <% end %>
+        <% if !current_user%>
+        <tr>
+          <td>ログインしていません。</td>
+            <% elsif current_user.favorited_by?(food.id) %>
+          <td>
+            <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
+              <i class="fa fa-heart unlike-btn fa-lg"></i>
+            <% end %>
+            <%= food.favorites.count %>
+          </td>
+          <% else %>
+            <td>
+              <%= link_to create_favorite_path(food), class: "favorite-link", method: :POST, remote: true do %>
+                <i class="fa fa-heart like-btn fa-lg"></i>
+              <% end %>
+              <%= food.favorites.count %>
+            </td>
           <% end %>
-          <%= food.favorites.count %>
-        </td>
-        <% else %>
-        <td>
-          <%= link_to create_favorite_path(food), class: "favorite-link", method: :POST, remote: true do %>
-            <i class="fa fa-heart like-btn fa-lg"></i>
-          <% end %>
-          <%= food.favorites.count %>
-        </td>
-      <% end %>
-      </tr>
-    </table>
+        </tr>
+      </table>
     </div>
   <% end %>
 </div>

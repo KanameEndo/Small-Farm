@@ -7,7 +7,7 @@ class FoodsController < ApplicationController
     @foods = Food.all.order(created_at: :desc)
     @q = Food.ransack(params[:q])
     @foods = @q.result(distinct: true).order(created_at: :desc)
-    @foods = @foods.page(params[:page]).per(4)
+    @foods = @foods.page(params[:page]).per(8)
   end
 
   def show
