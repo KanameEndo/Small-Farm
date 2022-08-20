@@ -9,9 +9,10 @@
   </tr>
     <td><%= link_to "プロフィール編集", edit_user_path(current_user), data: {"turbolinks" => false} %></td>
     <td><% if current_user&.admin %>
-        <%= link_to "今後のスケジュール", plans_path(current_user) %>
-          <%= link_to 'New Food', new_food_path %>
-        <% end %></td>
+      <%= link_to "今後のスケジュール", plans_path(current_user) %>
+        <%= link_to 'New Food', new_food_path %>
+      <% end %>
+    </td>
   <tr>
 </table>
 

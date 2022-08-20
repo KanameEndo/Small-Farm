@@ -3,26 +3,29 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-.contact-container {
-  width: 100%;
-  text-align: center;
-}
-
-table.contacts {
-  text-align: left;
-  width: 480;
-  margin: 0 auto;
-}
-
 #contact_name {
-  width: 400px;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  border: none;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 10px;
 }
 
 #contact_email {
-  width: 400px;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  border: none;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 10px;
 }
 
 #contact_message {
-  width: 400px;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  border: none;
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 10px;
 }
-
