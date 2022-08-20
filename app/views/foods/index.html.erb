@@ -14,6 +14,14 @@
   <% end %>
 </div>
 
+<div>
+  <% if current_user&.admin %>
+    <p>管理者用</p>
+      <p><%= link_to "今後のスケジュール", plans_path(current_user) %></p>
+      <p><%= link_to 'New Food', new_food_path %></p>
+  <% end %>
+</div>
+
 <div class="foodsTop-container">
   <% @foods.each do |food| %>
     <div class="food-container">
