@@ -72,6 +72,12 @@
         <% end %>
         <% if !current_user%>
         <tr>
+          <td>
+            <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
+              <i class="fa fa-heart unlike-btn fa-lg"></i>
+            <% end %>
+            <%= food.favorites.count %>
+          </td>
           <td>ログインしていません。</td>
             <% elsif current_user.favorited_by?(food.id) %>
           <td>

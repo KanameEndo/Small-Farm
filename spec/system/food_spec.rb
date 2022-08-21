@@ -5,10 +5,10 @@ RSpec.describe 'フード機能', type: :system do
     @food = FactoryBot.create(:food, user :@user)
     #アソシエーションが組まれる↑
 
-    visit new_session_path
-    fill_in :session_email,with: 'endo00@example.com'
-    fill_in :session_password,with: 'endo00'
-    click_on'Log in'
+    visit new_user_session_path
+    fill_in :user_email,with: 'endo00@example.com'
+    fill_in :user_password,with: 'endo00'
+    click_on'submit'
   end
 
   describe '検索機能' do
