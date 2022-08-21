@@ -2,7 +2,7 @@ require 'rails_helper'
 RSpec.describe 'フード機能', type: :system do
   before do
     @user = FactoryBot.create(:user)
-    @food = FactoryBot.create(:food, user :@user)
+    @food = FactoryBot.create(:food)
     #アソシエーションが組まれる↑
 
     visit new_user_session_path

@@ -14,11 +14,11 @@
   <% end %>
 </div>
 
-<div>
+<div class="admin-top">
   <% if current_user&.admin %>
-    <p>管理者用</p>
-      <p><%= link_to "今後のスケジュール", plans_path(current_user) %></p>
-      <p><%= link_to 'New Food', new_food_path %></p>
+    <div><p>管理者用</p></div>
+      <div class="button-green"><p class="admin-plan"><%= link_to "今後のスケジュール", plans_path(current_user) %></p></div>
+      <div class="button-green"><p class="admin-plan"><%= link_to 'New Food', new_food_path %></p></div>
   <% end %>
 </div>
 
@@ -73,12 +73,12 @@
         <% if !current_user%>
         <tr>
           <td>
-            <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
+            <%= link_to "javascript:alert('ログインしてください');", class: "favorite-link" do %>
               <i class="fa fa-heart unlike-btn fa-lg"></i>
             <% end %>
             <%= food.favorites.count %>
           </td>
-          <td>ログインしていません。</td>
+          <td></td>
             <% elsif current_user.favorited_by?(food.id) %>
           <td>
             <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>

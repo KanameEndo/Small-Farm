@@ -52,7 +52,7 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能・管理�
         fill_in "user[password]", with: "endo26"
         click_on "commit"
         visit plans_path
-        expect(foods_path).to eq current_path(user)
+        expect(foods_path).to eq current_path
       end
     end
 
@@ -76,7 +76,7 @@ RSpec.describe 'ユーザ登録・ログイン・ログアウト機能・管理�
         it "プロフィールを編集できる" do
           visit users_show_path
           click_on "プロフィール編集"
-          visit edit_user_path
+          visit edit_user_path(@user)
           expect(page).to have_content "編集"
           click_on "保存"
         end
