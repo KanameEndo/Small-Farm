@@ -1,14 +1,14 @@
 require 'rails_helper'
 RSpec.describe 'フード機能', type: :system do
-  before do
-    @user = FactoryBot.create(:user)
-    @food = FactoryBot.create(:food)
-    #アソシエーションが組まれる↑
+  let(:mail) { ArticleMailer.report_summary.deliver }
+  let(:check_sent_mail) {
+    expect(mail.present?).to be_truthy, 'メールが送信されていません'
+    expect(mail.to).to eq(['admin@example.com']), 'メールの送信先が正しくありません'
+    expect(mail.subject).to eq('HOGE'), 'メールのタイトルが正しくありません'
+  }
 
-    visit new_user_session_path
-    fill_in :user_email,with: 'endo00@example.com'
-    fill_in :user_password,with: 'endo00'
-    click_on'submit'
+  before do
+    @food = FactoryBot.create(:food)
   end
 
   describe '検索機能' do
@@ -23,17 +23,42 @@ RSpec.describe 'フード機能', type: :system do
   end
 
   describe '新規作成機能' do
+    before do
+      @user = FactoryBot.create(:user)
+      @food = FactoryBot.create(:food)
+  
+      visit new_user_session_path
+      fill_in :user_email,with: 'endo00@example.com'
+      fill_in :user_password,with: 'endo00'
+      click_on'commit'
+      visit foods_path
+    end
     context '食品を新規作成した場合' do
       it '作成した食品が表示される' do
         visit new_food_path
-        fill_in 'food[item_name]',with: 'food_name'
-        fill_in 'food[variety]',with: 'food_variety'
-        fill_in 'food[comment]' ,with: 'food_comment'
-        fill_in 'food[storage_method]',with: 'food_storage_method'
-        fill_in 'food[harvest]',with: DateTime.now
-        fill_in 'food[price]' ,with: 'food_price'
-        fill_in 'food[stock]' ,with: 'food_stock'
+        fill_in 'food_item_name',with: 'tomato'
+        fill_in 'food[variety]',with: 'tt'
+        fill_in 'food_comment' ,with: '1week'
+        fill_in 'food_storage_method',with: '1 week later'
+        fill_in 'food_harvest',with: DateTime.now
+        fill_in 'food_price' ,with: '100'
+        fill_in 'food_stock' ,with: '1'
         click_on '登録する'
+        expect(page).to have_content 'tomato'
+      end
+    end
+    context '食品を新規作成した場合' do
+      it 'メール通知される' do
+        visit new_food_path
+        fill_in 'food_item_name',with: 'tomato'
+        fill_in 'food[variety]',with: 'tt'
+        fill_in 'food_comment' ,with: '1week'
+        fill_in 'food_storage_method',with: '1 week later'
+        fill_in 'food_harvest',with: DateTime.now
+        fill_in 'food_price' ,with: '100'
+        fill_in 'food_stock' ,with: '1'
+        click_on '登録する'
+        visit letter_path
         expect(page).to have_content 'tomato'
       end
     end
@@ -47,28 +72,22 @@ RSpec.describe 'フード機能', type: :system do
         expect(page).to have_content 'tomato'
       end
     end
-
-    context 'タスクが作成日時の降順に並んでいる場合' do
-      it '新しいタスクが一番上に表示される' do
-        FactoryBot.create(:food, item_name: 'tomato', user: @user)
-        FactoryBot.create(:second_food, item_name: 'tomato2', user: @user)
-        FactoryBot.create(:third_food, item_name: 'tomato3', user: @user)
-        visit foods_path
-        food_list= all('.food_list')
-        save_and_open_page
-        expect(food_list[2]).to have_content 'tomato'
-        expect(food_list[1]).to have_content 'tomato2'
-        expect(food_list[0]).to have_content 'tomato3'
-      end
-    end
   end
 
   describe '詳細表示機能' do
-    context '任意のタスク詳細画面に遷移した場合' do
-      it '該当タスクの内容が表示される' do
-      food = FactoryBot.create(:food, item_name: 'tomato', content: 'food', user: @user)
+    context '任意の詳細画面に遷移した場合' do
+      it '該当の内容が表示される' do
+      food = FactoryBot.create(:food,
+        item_name: 'tomato',
+        variety: 'tt',
+        comment: 'good',
+        storage_method: '1week',
+        harvest: '1 week later',
+        price: '100',
+        stock: '1',
+      )
       visit food_path(food.id)
-      expect(page).to have_content 'food'
+      expect(page).to have_content 'good'
       end
     end
   end

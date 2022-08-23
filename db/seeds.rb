@@ -11,7 +11,7 @@
 end
 
 # スケジュール生成
-10.times do |n|
+5.times do |n|
   title = Gimei.kanji
   content = Gimei.kanji
   start_time = Faker::Date.forward(days: 10)
@@ -24,6 +24,7 @@ end
     updated_at:    "2021-01-01 00:00:00"
   )
 end
+
 
 # 食品生成
 Food.create!(
