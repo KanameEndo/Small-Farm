@@ -46,6 +46,7 @@ gem 'sendgrid-ruby'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'fog-aws'
+gem 'unicorn'
 
 
 group :development, :test do
@@ -55,6 +56,13 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'factory_bot_rails'
   gem 'launchy'
+  gem 'capistrano', '3.16.0'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :development do
