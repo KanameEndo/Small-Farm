@@ -45,6 +45,7 @@ gem 'kaminari'
 gem 'sendgrid-ruby'
 gem 'jquery-rails'
 gem 'jquery-turbolinks'
+gem 'fog-aws'
 
 
 group :development, :test do

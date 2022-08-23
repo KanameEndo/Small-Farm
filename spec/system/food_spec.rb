@@ -20,7 +20,6 @@ RSpec.describe 'フード機能', type: :system do
     before do
       @user = FactoryBot.create(:user)
       @food = FactoryBot.create(:food)
-  
       visit new_user_session_path
       fill_in :user_email,with: 'endo00@example.com'
       fill_in :user_password,with: 'endo00'
@@ -41,7 +40,6 @@ RSpec.describe 'フード機能', type: :system do
         expect(page).to have_content 'tomato'
       end
     end
-    
   end
 
   describe '一覧表示機能' do
