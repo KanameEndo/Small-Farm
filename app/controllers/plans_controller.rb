@@ -1,4 +1,5 @@
 class PlansController < ApplicationController
+  before_action :check_admin, only: [:index, :new, :edit, :update, :destroy, :create]
   def index
     @plans = Plan.all
     @plan = Plan.new
@@ -44,6 +45,11 @@ class PlansController < ApplicationController
 
   def plan_parameter
     params.require(:plan).permit(:title, :content, :start_time)
+  end
+
+  def check_admin
+    return if current_user.admin
+    redirect_to foods_path
   end
 
 end

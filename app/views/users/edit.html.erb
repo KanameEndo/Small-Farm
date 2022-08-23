@@ -1,3 +1,4 @@
+<div class="form-groups">
 <h1>プロフィールを編集する</h1>
 <% if @user.errors.any? %>
   <div id="error_explanation">
@@ -9,18 +10,19 @@
     </ul>
   </div>
 <% end %>
-<table>
-  <%= form_with model: @user, local: true do |form| %>
-    <tr>
-      <td>ユーザー名</td>
-      <td><%= form.text_field :name %></td>
-    </tr>
-    <tr>
-      <td>メールアドレス</td>
-      <td><%= form.email_field :email %></td>
-    </tr>
-    <tr>
-      <td><%= form.submit "保存" %></td>
-    </tr>
-  <% end %>
-</table>
+  <table>
+    <%= form_with model: @user, local: true do |form| %>
+      <dl>
+        <dt>ユーザー名</dt>
+        <dd class="form-contact"><%= form.text_field :name %></dd>
+      </dl>
+      <dl>
+        <dt>メールアドレス</dt>
+        <dd class="form-contact"><%= form.email_field :email %></dd>
+      </dl>
+      <dl>
+        <dt><%= form.submit "保存" %></dt>
+      </dl>
+    <% end %>
+  </table>
+</div>
