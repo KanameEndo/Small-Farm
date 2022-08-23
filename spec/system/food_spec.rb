@@ -1,11 +1,5 @@
 require 'rails_helper'
 RSpec.describe 'フード機能', type: :system do
-  let(:mail) { ArticleMailer.report_summary.deliver }
-  let(:check_sent_mail) {
-    expect(mail.present?).to be_truthy, 'メールが送信されていません'
-    expect(mail.to).to eq(['admin@example.com']), 'メールの送信先が正しくありません'
-    expect(mail.subject).to eq('HOGE'), 'メールのタイトルが正しくありません'
-  }
 
   before do
     @food = FactoryBot.create(:food)
@@ -47,21 +41,7 @@ RSpec.describe 'フード機能', type: :system do
         expect(page).to have_content 'tomato'
       end
     end
-    context '食品を新規作成した場合' do
-      it 'メール通知される' do
-        visit new_food_path
-        fill_in 'food_item_name',with: 'tomato'
-        fill_in 'food[variety]',with: 'tt'
-        fill_in 'food_comment' ,with: '1week'
-        fill_in 'food_storage_method',with: '1 week later'
-        fill_in 'food_harvest',with: DateTime.now
-        fill_in 'food_price' ,with: '100'
-        fill_in 'food_stock' ,with: '1'
-        click_on '登録する'
-        visit letter_path
-        expect(page).to have_content 'tomato'
-      end
-    end
+    
   end
 
   describe '一覧表示機能' do
