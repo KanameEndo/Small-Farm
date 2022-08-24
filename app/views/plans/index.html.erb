@@ -55,7 +55,7 @@
         <tbody>
           <% @plans.each do |plan| %>
             <tr>
-              <td><%= link_to plan.title , plan %></td>
+              <td><%= link_to plan.title , plan , {class: "rspec"} %></td>
               <td><%= plan.start_time.strftime("%m-%d") %></td>
             </tr>
           <% end %>

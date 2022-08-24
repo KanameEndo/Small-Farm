@@ -35,8 +35,7 @@ RSpec.describe 'プラン機能', type: :system do
         select '00', from: 'plan_start_time_4i'
         select '00', from: 'plan_start_time_5i'
         click_on 'commit'
-        click_on 'kome'
-        visit plan_path(plan.id)
+        find('.rspec').click
         expect(page).to have_content 'kome'
       end
     end

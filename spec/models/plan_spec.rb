@@ -1,11 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
-  describe 'フードモデル機能', type: :model do
+  describe 'プランモデル機能', type: :model do
     describe 'バリデーションのテスト' do
-      context 'フードの名前が空の場合' do
+      context 'プランのタイトルが空の場合' do
         it 'バリデーションにひっかる' do
-          food = Food.new(
+          plan = Foo.new(
             item_name: nil,
             variety: 'tt',
             comment: 'good',
