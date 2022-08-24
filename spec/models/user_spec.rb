@@ -1,51 +1,41 @@
 require 'rails_helper'
+
 RSpec.describe User, type: :model do
-  let!(:user) { FactoryBot.build(:task) }
- 
-  describe 'Association' do
-    let(:association) do
-       described_class.reflect_on_association(target)
-    end
-    context 'users' do
-      let(:target) { :tasks }
-      it { expect(association.macro).to eq :has_many }
-      it { expect(association.class_name).to eq 'Task' }
-    end
-    context 'users' do
-      let(:target) { :active_relationships }
-      it { expect(association.macro).to eq :has_many }
-      it { expect(association.class_name).to eq 'Relationship' }
-    end
-
-    context 'users' do
-      let(:target) { :passive_relationships }
-      it { expect(association.macro).to eq :has_many }
-      it { expect(association.class_name).to eq 'Relationship' }
-    end
-
-    context 'users' do
-      let(:target) { :followers }
-      it { expect(association.macro).to eq :has_many }
-      it { expect(association.class_name).to eq 'User' }
-    end
-
-    context 'users' do
-      let(:target) { :following }
-      it { expect(association.macro).to eq :has_many }
-      it { expect(association.class_name).to eq 'User' }
-    end
-    
-    describe "follow!,following?,unfollow!" do
-      let(:other_user) { FactoryBot.create(:task) }
-      before { user.following}
-      describe "follow!" do
-        it { expect(user.following).to be_truthy }
+  describe 'ユーザ新規登録テスト' do
+    context '名前とemailとpasswordがある' do
+      it 'アカウントが新規で作成される' do
+        enough_info = FactoryBot.build(:user)
+        expect(enough_info).to be_valid
       end
-      describe "following?" do
-        it { expect(user.following).to be_truthy }
+    end
+    context '名前が空の場合' do
+      it 'バリデーションエラー(nameのNull制約)となり失敗する' do
+        empty_password = FactoryBot.build(:user, name: nil)
+        expect(empty_password).not_to be_valid
       end
-      describe "unfollow!" do
-        it { expect(user.following.destroy).to be nil }
+    end
+    context 'emailが空の場合' do
+      it 'バリデーションエラー(emailのNull制約)となり失敗する' do
+        empty_password = FactoryBot.build(:user, email: nil)
+        expect(empty_password).not_to be_valid
+      end
+    end
+    context 'emailの形式が異なる場合' do
+      it 'バリデーションエラー(emailのフォーマット制限)となり失敗する' do
+        different_types_email = FactoryBot.build(:user, email: 'email.com')
+        expect(different_types_email).not_to be_valid
+      end
+    end
+    context 'passwordが空の場合' do
+      it 'バリデーションエラー(passwordのNull制約)となり失敗する' do
+        empty_password = FactoryBot.build(:user, password: nil)
+        expect(empty_password).not_to be_valid
+      end
+    end
+    context 'passwordが空の場合' do
+      it 'バリデーションエラー(passwordの文字数制限)となり失敗する' do
+        not_enough_password = FactoryBot.build(:user, password: 'pass')
+        expect(not_enough_password).not_to be_valid
       end
     end
   end

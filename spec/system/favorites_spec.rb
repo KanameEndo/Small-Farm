@@ -2,11 +2,17 @@ require 'rails_helper'
 
 RSpec.describe 'Favorites', type: :system do
   describe 'お気に入り食品機能' do
-    let!(:user) { FactoryBot.create(:user) }
-    let!(:food) { FactoryBot.create(:food) }
     before do
-      sign_in(user)
+      @user = FactoryBot.create(:user)
+      @food = FactoryBot.create(:food, user :@user)
+      #アソシエーションが組まれる↑
+
+      visit new_session_path
+      fill_in :session_email,with: 'endo00@example.com'
+      fill_in :session_password,with: 'endo00'
+      click_on'Log in'
     end
+
     context 'お気に入りに登録した場合' do
       before do
         visit divesite_path(divesite.id)

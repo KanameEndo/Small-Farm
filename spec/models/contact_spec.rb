@@ -1,30 +1,29 @@
 require 'rails_helper'
 
-RSpec.describe Food, type: :model do
-  describe 'フードモデル機能', type: :model do
-    describe 'バリデーションのテスト' do
-      context 'フードの名前が空の場合' do
-        it 'バリデーションにひっかる' do
-          food = Food.new(
-            item_name: nil,
-            variety: 'tt',
-            comment: 'good',
-            storage_method: '1week',
-            harvest: '1 week later',
-            price: '100',
-            stock: '1',
-          )
-          expect(food).not_to be_valid
-        end
+RSpec.describe Contact, type: :model do
+  describe 'コンタクトモデル機能', type: :model do
+    context '名前が空の場合' do
+      it 'バリデーションエラー(nameのNil制約)となり失敗する' do
+        empty_name = FactoryBot.build(:contact, name: nil)
+        expect(empty_name).not_to be_valid
       end
-      context 'フードの名前と詳細に内容が記載されている場合' do
-        it 'バリデーションが通る' do
-          food = FactoryBot.create(
-            :food,
-            item_name: 'tomato'
-            )
-            expect(food).to be_valid
-        end
+    end
+    context 'emailが空の場合' do
+      it 'バリデーションエラー(emailのNil制約)となり失敗する' do
+        empty_email = FactoryBot.build(:contact, email: nil)
+        expect(empty_email).not_to be_valid
+      end
+    end
+    context 'emailの形式が異なる場合' do
+      it 'バリデーションエラー(emailのフォーマット制限)となり失敗する' do
+        different_types_email = FactoryBot.build(:contact, email: 'email.com')
+        expect(different_types_email).not_to be_valid
+      end
+    end
+    context 'messageが空の場合' do
+      it 'バリデーションエラー(messageのNil制約)となり失敗する' do
+        empty_message = FactoryBot.build(:contact, message: nil)
+        expect(empty_message).not_to be_valid
       end
     end
   end
