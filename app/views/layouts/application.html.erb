@@ -32,13 +32,15 @@
           </ul>
         </nav>
     </header>
-    <div class="logo">
-      <%= link_to (foods_path) do%>
-        <%= image_tag (asset_path'uchiyamafarmlogo.png') %>
-      <% end%>
-    </div>
-    <div class="container">
-      <%= yield %>
+    <div class="wrapper">
+      <div class="logo">
+        <%= link_to (foods_path) do%>
+          <%= image_tag (asset_path'uchiyamafarmlogo.png') %>
+        <% end%>
+      </div>
+      <div class="container">
+        <%= yield %>
+      </div>
     </div>
     <footer>
       <ul class="menu">

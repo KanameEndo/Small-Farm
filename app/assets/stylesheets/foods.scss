@@ -72,6 +72,9 @@
   border-radius: 15px;
   text-align: center;
   margin: 15px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button-blue-small {
@@ -93,7 +96,9 @@
   border-radius: 15px;
   text-align: center;
   margin: 15px auto;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button-white-small {
@@ -119,8 +124,7 @@
 
 .admin-plan {
   color: #f8f8f8;
-  margin-top: 10px;
-
+  margin: 0px;
 }
 
 .field-input input {
