@@ -45,11 +45,11 @@
           </td>
         </tr>
         <% if current_user&.admin %>
-          <tr>
+          <%# <tr>
             <td>
               <%= link_to 'Show', food_path(food) %>
-            </td>
-          </tr>
+            <%# </td>
+          </tr> %>
           <tr>
             <td>
               <%= link_to 'Edit', edit_food_path(food) %>
@@ -73,14 +73,14 @@
             <% elsif current_user.favorited_by?(food.id) %>
           <td>
             <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
-              <i class="fa fa-heart unlike-btn fa-lg"></i>
+              お気に入り解除<i class="fa fa-heart unlike-btn fa-lg"></i>
             <% end %>
             <%= food.favorites.count %>
           </td>
           <% else %>
             <td>
               <%= link_to create_favorite_path(food), class: "favorite-link", method: :POST, remote: true do %>
-                <i class="fa fa-heart like-btn fa-lg"></i>
+                お気に入り<i class="fa fa-heart like-btn fa-lg"></i>
               <% end %>
               <%= food.favorites.count %>
             </td>
