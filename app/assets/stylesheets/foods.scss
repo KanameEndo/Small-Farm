@@ -13,6 +13,18 @@
   border-color: #c0c0c0;
 }
 
+.food-container img {
+  width: 221px;
+  height: 156px;
+  border-radius: 5px 5px 5px 5px;
+  object-fit: cover;
+}
+
+
+.tbody {
+  width: 225px;
+}
+
 .top_main {
   width: auto;
   height: 500;
@@ -102,6 +114,16 @@
   padding: 0.75rem;
   margin-bottom: 10px;
 }
+
+.food-name {
+  font-size: 1.2rem;
+  color: rgb(134, 92, 0);
+  font-weight: bold;
+}
+
+
+
+
 
 @media screen and (max-width: 480px) {
   /* 480px以下に適用されるCSS（スマホ用） */

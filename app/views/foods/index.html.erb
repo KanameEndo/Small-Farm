@@ -25,18 +25,18 @@
           </td>
         </tr>
         <tr>
-          <td>
+          <td class="food-name">
             <%= food.item_name %>
           </td>
         </tr>
         <tr>
           <td>
-            <%= food.variety %>
+            品種：<%= food.variety %>
           </td>
         </tr>
         <tr>
           <td>
-            <%= food.harvest %>
+            収穫予定日：<%= food.harvest %>
           </td>
         </tr>
         <tr>
@@ -49,9 +49,13 @@
             <td>
               <%= link_to 'Show', food_path(food) %>
             </td>
+          </tr>
+          <tr>
             <td>
               <%= link_to 'Edit', edit_food_path(food) %>
             </td>
+          </tr>
+          <tr>
             <td>
               <%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %>
             </td>
