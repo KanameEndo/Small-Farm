@@ -74,6 +74,17 @@
   margin: 15px auto;
 }
 
+.button-blue-small {
+  width: 200px;
+  height: 40px;
+  background: #b3ddff;
+  border: solid;
+  border-color: #7ec5ff;
+  border-radius: 15px;
+  text-align: center;
+  margin: 15px auto;
+}
+
 .button-white {
   width: 450px;
   height: 40px;
@@ -83,6 +94,21 @@
   text-align: center;
   margin: 15px auto;
 
+}
+
+.button-white-small {
+  width: 200px;
+  height: 40px;
+  border: solid;
+  border-color: #7ec5ff;
+  border-radius: 15px;
+  text-align: center;
+  margin: 15px auto;
+
+}
+
+.food-show-img {
+  text-align: center;
 }
 
 .admin-top {
@@ -121,7 +147,16 @@
   font-weight: bold;
 }
 
+.food-show-h1 {
+  font-size: 1.5rem;
+  color: rgb(134, 92, 0);
+  font-weight: bold;
+}
 
+.arrow {
+  font-size: 16px;
+  color: cornflowerblue;
+}
 
 
 

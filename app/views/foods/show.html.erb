@@ -1,7 +1,6 @@
 <div class="form-groups">
-  <h1><%= @food.item_name %> の詳細</h1>
-  <p>
-    <strong>Image:</strong>
+  <h1 class="food-show-h1"><%= @food.item_name %> の詳細</h1>
+  <p class="food-show-img">
     <%= image_tag @food.image.variant(resize: "460") if @food.image.attached? %>
   </p>
   <p>
@@ -40,8 +39,18 @@
   </p>
 
 
-  <%= link_to 'Back', foods_path %>
-  <% if current_user&.admin %>
-    <%= link_to 'Edit', edit_food_path(@food) %>
-  <% end %>
+  <div class="button-white-small">
+    <p class="arrow">
+      <i class="fa-solid fa-angle-left"></i>
+      <%= link_to 'Back', foods_path %>
+    </p>
+  </div>
+
+  <div class="button-blue-small">
+    <p class="arrow">
+      <% if current_user&.admin %>
+        <%= link_to 'Edit', edit_food_path(@food) %>
+      <% end %>
+        </p>
+  </div>
 </div>
