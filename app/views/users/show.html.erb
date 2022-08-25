@@ -1,5 +1,5 @@
 <div class="users-show">
-<h3><%= current_user.name %> マイページ</h3>
+  <h3><%= current_user.name %> マイページ</h3>
   <table>
     <tr class="users-show-edit">
       <td class="users-show-edit">お名前：<%= current_user.name %></td>
@@ -7,24 +7,21 @@
     <tr>
       <td class="users-show-edit">メールアドレス：<%= current_user.email %></td>
     </tr>
-    <tr class="users-show-edit">
-      <td class="profile-edit"><%= link_to "プロフィール編集", edit_user_path(current_user), data: {"turbolinks" => false} %></td>
-    </tr>
   </table>
-  <table>
-    <tr>
-      <td class="button-white">
-        <% if current_user&.admin %>
-          <%= link_to "今後のスケジュール", plans_path(current_user) %>
-      </td>
-    </tr>
-    <tr>
-      <td class="button-white">
-          <%= link_to 'New Food', new_food_path %>
-        <% end %>
-      </td>
-    </tr>
-  </table>
+
+  <div class="profile-edit">
+    <%= link_to "プロフィール編集", edit_user_path(current_user), data: {"turbolinks" => false} %>
+  </div>
+  <div class="button-white">
+    <% if current_user&.admin %>
+      <%= link_to "今後のスケジュール", plans_path(current_user) %>
+    <% end %>
+  </div>
+  <div class="button-white">
+    <% if current_user&.admin %>
+      <%= link_to 'New Food', new_food_path %>
+    <% end %>
+  </div>
 </div>
 <div class="food-container-favorites">
   <table>
