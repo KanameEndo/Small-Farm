@@ -42,13 +42,21 @@
   <div class="button-white-small">
     <p class="arrow">
       <i class="fa-solid fa-angle-left"></i>
-      <%= link_to 'Back', foods_path %>
+      <%= link_to 'TOP Back', foods_path %>
+    </p>
+  </div>
+
+    <div class="button-white-small">
+    <p class="arrow">
+      <i class="fa-solid fa-arrow-rotate-right"></i>
+      <%= link_to 'My Page Back', users_show_path %>
     </p>
   </div>
 
   <div class="button-blue-small">
     <p class="arrow">
       <% if current_user&.admin %>
+        <i class="fa-solid fa-pencil"></i>
         <%= link_to 'Edit', edit_food_path(@food) %>
       <% end %>
         </p>
