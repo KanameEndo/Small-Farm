@@ -10,17 +10,8 @@
   </table>
 
   <div class="profile-edit">
-    <%= link_to "プロフィール編集", edit_user_path(current_user), data: {"turbolinks" => false} %>
-  </div>
-  <div class="button-white">
-    <% if current_user&.admin %>
-      <%= link_to "今後のスケジュール", plans_path(current_user) %>
-    <% end %>
-  </div>
-  <div class="button-white">
-    <% if current_user&.admin %>
-      <%= link_to 'New Food', new_food_path %>
-    <% end %>
+    <i class="fa-solid fa-pencil"></i>
+    &nbsp;<%= link_to "プロフィール編集", edit_user_path(current_user), data: {"turbolinks" => false} %>
   </div>
 </div>
 <div class="food-container-favorites">
@@ -36,60 +27,80 @@
             </td>
           </tr>
           <tr>
-            <td><%= food.item_name %></td>
+            <td class="food-name">
+              <%= food.item_name %>
+            </td>
           </tr>
           <tr>
-            <td><%= food.variety %></td>
+            <td>
+              品種：<%= food.variety %>
+            </td>
           </tr>
           <tr>
-            <td><%= food.harvest %></td>
+            <td>
+              収穫予定日：<%= food.harvest %>
+            </td>
           </tr>
           <tr>
-            <td><%= food.comment %></td>
-          </tr>
-          <tr>
-            <td><%= food.stock %></td>
-          </tr>
-          <tr>
-            <td><%= food.price %></td>
+            <td>
+              <%= food.price %>
+            </td>
           </tr>
           <% if current_user&.admin %>
             <tr>
-              <td><%= link_to 'Show', food_path(food) %></td>
+              <td>
+                <%= link_to '詳しい説明をみる', food_path(food) %>
+              </td>
             </tr>
             <tr>
-              <td><%= link_to 'Edit', edit_food_path(food) %></td>
+              <td>
+                <%= link_to 'Edit', edit_food_path(food) %>
+              </td>
             </tr>
             <tr>
-              <td><%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td>
+                <%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %>
+              </td>
             </tr>
           <% end %>
-
           <% if !current_user%>
-            <tr>
-              <td>ログインしていません。</td>
-            </tr>
-          <% elsif current_user.favorited_by?(food.id) %>
-            <tr>
-              <td>
-                <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
-                  <i class="fa fa-heart unlike-btn fa-lg"></i>
-                <% end %>
-                <%= food.favorites.count %>
-              </td>
-            </tr>
-          <% else %>
-            <tr>
-              <td>
-                <%= link_to create_favorite_path(food), class: "favorite-link", method: :POST, remote: true do %>
-                  <i class="fa fa-heart like-btn fa-lg"></i>
-                <% end %>
-                <%= food.favorites.count %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      <% end %>
+          <tr>
+            <td>
+              <%= link_to "javascript:alert('ログインしてください');", class: "favorite-link" do %>
+                <i class="fa fa-heart unlike-btn fa-lg"></i>
+              <% end %>
+              <%= food.favorites.count %>
+            </td>
+            <td></td>
+              <% elsif current_user.favorited_by?(food.id) %>
+            <td>
+              <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
+                お気に入り解除<i class="fa fa-heart unlike-btn fa-lg"></i>
+              <% end %>
+              <%= food.favorites.count %>
+            </td>
+            <% else %>
+            <td>
+              <%= link_to create_favorite_path(food), class: "favorite-link", method: :POST, remote: true do %>
+                お気に入り<i class="fa fa-heart like-btn fa-lg"></i>
+              <% end %>
+              <%= food.favorites.count %>
+            </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
     <% end %>
   </table>
 </div>
+
+<% if current_user&.admin %>
+  <div class="button-white">
+    <%= link_to "今後のスケジュール", plans_path(current_user) %>
+    &nbsp;<i class="fa-solid fa-angles-right"></i></i>
+  </div>
+  <div class="button-white">
+    <i class="fa-regular fa-pen-to-square"></i>
+    &nbsp;<%= link_to 'New Food', new_food_path %>
+  </div>
+<% end %>

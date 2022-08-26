@@ -46,19 +46,18 @@
     </p>
   </div>
 
-    <div class="button-white-small">
+  <div class="button-white-small">
     <p class="arrow">
-      <i class="fa-solid fa-arrow-rotate-right"></i>
-      <%= link_to 'My Page Back', users_show_path %>
+      <i class="fa-solid fa-user"></i>
+      <%= link_to 'My Page', users_show_path %>
     </p>
   </div>
-
+  <% if current_user&.admin %>
   <div class="button-blue-small">
     <p class="arrow">
-      <% if current_user&.admin %>
-        <i class="fa-solid fa-pencil"></i>
-        <%= link_to 'Edit', edit_food_path(@food) %>
-      <% end %>
-        </p>
+      <i class="fa-solid fa-pencil"></i>
+      <%= link_to 'Edit', edit_food_path(@food) %>
+      </p>
   </div>
+  <% end %>
 </div>

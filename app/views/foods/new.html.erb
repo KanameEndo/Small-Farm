@@ -3,5 +3,10 @@
 
   <%= render 'form', food: @food %>
 
-  <%= link_to 'トップページへ戻る', foods_path %>
+  <div class="button-white-small">
+    <p class="arrow">
+      <i class="fa-solid fa-angle-left"></i>
+      <%= link_to 'トップページへ戻る', foods_path %>
+    </p>
+  </div>
 </div>

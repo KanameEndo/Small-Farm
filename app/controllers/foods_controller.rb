@@ -25,7 +25,7 @@ class FoodsController < ApplicationController
     @food = Food.new(food_params)
     if @food.save
       NoticeMailer.sendmail_food(@food).deliver
-      redirect_to foods_path, notice: 'Food was successfully created.'
+      redirect_to foods_path, notice: 'フードを新規登録しました'
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class FoodsController < ApplicationController
   def update
     respond_to do |format|
       if @food.update(food_params)
-        format.html { redirect_to food_url(@food), notice: "Food was successfully updated." }
+        format.html { redirect_to food_url(@food), notice: "フードの更新をしました" }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -45,7 +45,7 @@ class FoodsController < ApplicationController
     @food.destroy
 
     respond_to do |format|
-      format.html { redirect_to foods_url, notice: "Food was successfully destroyed." }
+      format.html { redirect_to foods_url, notice: "フードを削除しました" }
     end
   end
 

@@ -55,19 +55,19 @@
   width: 450px;
   height: 40px;
   background: #b3ddff;
+  border: solid;
+  border-color: #7ec5ff;
   border-radius: 15px;
   text-align: center;
   margin: 15px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .users-show {
   margin: 10px auto;
   width: 100%;
-}
-
-.users-show-edit {
-  padding: 20px auto;
-  margin: 20px auto;
 }
 
 .button-white {
@@ -78,4 +78,12 @@
   border-radius: 15px;
   text-align: center;
   margin: 15px auto;
+}
+
+.fa-solid {
+  color: #326cf4;
+}
+
+.fa-regular {
+  color: #326cf4;
 }

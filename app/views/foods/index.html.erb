@@ -12,7 +12,7 @@
     <%= f.submit "検索" %>
   <% end %>
 </div>
-<h2>9月の収穫情報</h2>
+<h2>8月の収穫情報</h2>
 <div class="foodsTop-container">
   <% @foods.each do |food| %>
     <div class="food-container">
@@ -45,11 +45,11 @@
           </td>
         </tr>
         <% if current_user&.admin %>
-          <%# <tr>
+          <tr>
             <td>
-              <%= link_to 'Show', food_path(food) %>
-            <%# </td>
-          </tr> %>
+              <%= link_to '詳しい説明をみる', food_path(food) %>
+            </td>
+          </tr>
           <tr>
             <td>
               <%= link_to 'Edit', edit_food_path(food) %>
@@ -78,12 +78,12 @@
             <%= food.favorites.count %>
           </td>
           <% else %>
-            <td>
-              <%= link_to create_favorite_path(food), class: "favorite-link", method: :POST, remote: true do %>
-                お気に入り<i class="fa fa-heart like-btn fa-lg"></i>
-              <% end %>
-              <%= food.favorites.count %>
-            </td>
+          <td>
+            <%= link_to create_favorite_path(food), class: "favorite-link", method: :POST, remote: true do %>
+              お気に入り<i class="fa fa-heart like-btn fa-lg"></i>
+            <% end %>
+            <%= food.favorites.count %>
+          </td>
           <% end %>
         </tr>
       </table>
