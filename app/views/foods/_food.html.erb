@@ -22,25 +22,27 @@
 </tr>
 <tr>
   <td>
-    <%= food.price %>
+    <%= food.price %>円
+  </td>
+</tr>
+<tr>
+  <td class="food-comment-continue">
+    <%= food.comment %>
+  </td>
+</tr>
+<tr>
+  <td>
+    <%= link_to '続きを読む', food_path(food) %>
+    <i class="fa-solid fa-angles-right"></i>
   </td>
 </tr>
 <% if current_user&.admin %>
-  <tr>
-    <td>
-      <%= link_to '詳しい説明をみる', food_path(food) %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <%= link_to 'Edit', edit_food_path(food) %>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %>
-    </td>
-  </tr>
+<tr>
+  <td>
+    <%= link_to 'フード情報更新・管理', food_path(food) %>
+    <i class="fa-solid fa-pencil"></i>
+  </td>
+</tr>
 <% end %>
 <% if !current_user%>
 <tr>

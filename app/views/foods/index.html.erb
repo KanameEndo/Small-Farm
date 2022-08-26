@@ -41,25 +41,27 @@
         </tr>
         <tr>
           <td>
-            <%= food.price %>
+            <%= food.price %>円
+          </td>
+        </tr>
+        <tr>
+          <td class="food-comment-continue">
+            <%= food.comment %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= link_to '続きを読む', food_path(food) %>
+            <i class="fa-solid fa-angles-right"></i>
           </td>
         </tr>
         <% if current_user&.admin %>
-          <tr>
-            <td>
-              <%= link_to '詳しい説明をみる', food_path(food) %>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <%= link_to 'Edit', edit_food_path(food) %>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <%= link_to 'Destroy', food_path(food), method: :delete, data: { confirm: 'Are you sure?' } %>
-            </td>
-          </tr>
+        <tr>
+          <td>
+            <%= link_to 'フード情報更新・管理', food_path(food) %>
+            <i class="fa-solid fa-pencil"></i>
+          </td>
+        </tr>
         <% end %>
         <% if !current_user%>
         <tr>
@@ -93,9 +95,15 @@
 </hr>
 <div class="admin-top">
   <% if current_user&.admin %>
-    <h3>管理者用</h3>
-      <div class="button-blue"><p class="admin-plan"><%= link_to 'New Food', new_food_path %></p></div>
-      <div class="button-white"><p class="admin-plan"><%= link_to "今後のスケジュール", plans_path(current_user) %></p></div>
+    <h3>管理者用 登録・スケジュール</h3>
+    <div class="button-blue">
+      <i class="fa-regular fa-pen-to-square"></i>
+      &nbsp;<%= link_to 'New Food', new_food_path %>
+    </div>
+    <div class="button-white">
+      <%= link_to "今後のスケジュール", plans_path(current_user) %>
+      &nbsp;<i class="fa-solid fa-angles-right"></i>
+    </div>
   <% end %>
 </div>
 

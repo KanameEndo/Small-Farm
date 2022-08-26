@@ -38,6 +38,20 @@
     <%= @food.stock %>
   </p>
 
+  <% if current_user&.admin %>
+    <div class="button-blue-small">
+      <p class="arrow">
+        <i class="fa-solid fa-pencil"></i>
+        <%= link_to 'Edit', edit_food_path(@food) %>
+      </p>
+    </div>
+    <div class="button-blue-small">
+      <p class="arrow">
+        <i class="fa-solid fa-trash-can"></i>
+        <%= link_to '削除', food_path(@food), method: :delete, data: { confirm: 'Are you sure?' } %>
+      </p>
+    </div>
+  <% end %>
 
   <div class="button-white-small">
     <p class="arrow">
@@ -52,12 +66,4 @@
       <%= link_to 'My Page', users_show_path %>
     </p>
   </div>
-  <% if current_user&.admin %>
-  <div class="button-blue-small">
-    <p class="arrow">
-      <i class="fa-solid fa-pencil"></i>
-      <%= link_to 'Edit', edit_food_path(@food) %>
-      </p>
-  </div>
-  <% end %>
 </div>

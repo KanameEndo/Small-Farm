@@ -75,6 +75,14 @@ p {
   min-height: calc(100vh - 130px - 70px);
 }
 
+.food-comment-continue {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+
+  overflow: hidden;
+}
+
 /*========= 途中からハンバーガーメニューに変化するのためのCSS ===============*/
 /*========= ボタンのためのCSS ===============*/
 /*ボタン全体の形状*/
