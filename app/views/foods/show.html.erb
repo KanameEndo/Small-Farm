@@ -60,10 +60,11 @@
     </p>
   </div>
 
+<% if current_user %>
   <div class="button-white-small">
     <p class="arrow">
       <i class="fa-solid fa-user"></i>
       <%= link_to 'My Page', users_show_path %>
     </p>
   </div>
-</div>
+<% end %>
