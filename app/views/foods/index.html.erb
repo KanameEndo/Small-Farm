@@ -5,14 +5,16 @@
 </div>
 
 <h1 class="concept">内山農園ではSDGsの一環としてフードマイレージに取り組んでます。</br>お近くに住む方たちに、採れたての野菜をお手頃価格でご提供しております。</br>フードマイレージの取り組として、収穫予定日を予めお知らせし、 ご来店いただいた方順に販売しています。</h1>
+
 <div class="search-container">
+
   <%= search_form_for @q do |f| %>
-    <%= f.label :item_name_or_variety_or_comment_or_storage_method_or_harvest_or_price_cont, "キーワード" %>
-    <%= f.search_field :item_name_or_variety_or_comment_or_storage_method_or_harvest_or_price_cont %>
+    <%= f.label :item_name_or_variety_or_comment_or_storage_method_or_harvest_or_price_cont, "野菜や果物名を入力してください。" %>
+    <%= f.search_field :item_name_or_variety_or_comment_or_storage_method_or_harvest_or_price_cont, placeholder: "例)じゃがいも" %>
     <%= f.submit "検索" %>
   <% end %>
 </div>
-<h2>8月の収穫情報</h2>
+
 <div class="foodsTop-container">
   <% @foods.each do |food| %>
     <div class="food-container">
@@ -40,13 +42,13 @@
           </td>
         </tr>
         <tr>
-          <td>
-            <%= food.price %>円
+          <td class="food-comment-continue">
+          <%= food.comment %>
           </td>
         </tr>
         <tr>
-          <td class="food-comment-continue">
-            <%= food.comment %>
+          <td>
+            <%= food.price %>円
           </td>
         </tr>
         <tr>
