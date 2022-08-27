@@ -48,7 +48,7 @@
     <div class="button-blue-small">
       <p class="arrow">
         <i class="fa-solid fa-trash-can"></i>
-        <%= link_to '削除', food_path(@food), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to '削除', food_path(@food), method: :delete, data: { confirm: '本当に消していいですか？' } %>
       </p>
     </div>
   <% end %>

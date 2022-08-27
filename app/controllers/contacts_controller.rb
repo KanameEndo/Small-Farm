@@ -19,7 +19,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       ContactMailer.contact_mail(@contact).deliver
-      redirect_to new_contact_path, notice: 'Contact was successfully created.'
+      redirect_to new_contact_path, notice: 'お問い合わせありがとうございます！営業日2〜3日でご返信いたします。'
     else
       render :new
     end
