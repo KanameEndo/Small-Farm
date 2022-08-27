@@ -4,7 +4,7 @@
   <%= image_tag (asset_path'main.png') %>
 </div>
 
-<h1 class="concept">内山農園ではSDGsの一環としてフードマイレージに取り組んでます。</br>お近くに住む方たちに、採れたての野菜をお手頃価格でご提供しております。</br>フードマイレージの取り組として、収穫予定日を予めお知らせし、 ご来店いただいた方順に販売しています。</h1>
+<h1 class="concept">内山農園ではSDGsの一環としてフードロス&フードマイレージに取り組んでます。</br>お近くに住む方たちに、採れたての野菜をお手頃価格でご提供しております。</br>フードロス&フードマイレージの取り組として、収穫予定日を予めお知らせし、 </br>ご来店いただいた方順に販売しています。</h1>
 
 <div class="search-container">
 
@@ -14,7 +14,6 @@
     <%= f.submit "検索" %>
   <% end %>
 </div>
-
 <div class="foodsTop-container">
   <% @foods.each do |food| %>
     <div class="food-container">
@@ -48,13 +47,13 @@
         </tr>
         <tr>
           <td>
-            <%= food.price %>円
+            <%= link_to '続きを読む', food_path(food) %>
+            <i class="fa-solid fa-angles-right"></i>
           </td>
         </tr>
         <tr>
-          <td>
-            <%= link_to '続きを読む', food_path(food) %>
-            <i class="fa-solid fa-angles-right"></i>
+          <td class="price-red">
+            <%= food.price %>
           </td>
         </tr>
         <% if current_user&.admin %>

@@ -19,77 +19,77 @@
     <% if @favorite_list.present? %>
       <% @favorite_list.each do |food| %>
         <tbody id="food_<%= food.id %>" class="food-container">
-        <tr>
-          <td>
-            <%= link_to (food_path(food)) do%>
-              <%= image_tag food.image.variant(resize: "225") if food.image.attached? %>
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <td class="food-name">
-            <%= food.item_name %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            品種：<%= food.variety %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            収穫予定日：<%= food.harvest %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <%= food.price %>円
-          </td>
-        </tr>
-        <tr>
-          <td class="food-comment-continue">
+          <tr>
+            <td>
+              <%= link_to (food_path(food)) do%>
+                <%= image_tag food.image.variant(resize: "225") if food.image.attached? %>
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <td class="food-name">
+              <%= food.item_name %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              品種：<%= food.variety %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              収穫予定日：<%= food.harvest %>
+            </td>
+          </tr>
+          <tr>
+            <td class="food-comment-continue">
             <%= food.comment %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <%= link_to '続きを読む', food_path(food) %>
-            <i class="fa-solid fa-angles-right"></i>
-          </td>
-        </tr>
-        <% if current_user&.admin %>
-        <tr>
-          <td>
-            <%= link_to 'フード情報更新・管理', food_path(food) %>
-            <i class="fa-solid fa-pencil"></i>
-          </td>
-        </tr>
-        <% end %>
-        <% if !current_user%>
-        <tr>
-          <td>
-            <%= link_to "javascript:alert('ログインしてください');", class: "favorite-link" do %>
-              <i class="fa fa-heart unlike-btn fa-lg"></i>
-            <% end %>
-            <%= food.favorites.count %>
-          </td>
-          <td></td>
-            <% elsif current_user.favorited_by?(food.id) %>
-          <td>
-            <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
-              お気に入り解除<i class="fa fa-heart unlike-btn fa-lg"></i>
-            <% end %>
-            <%= food.favorites.count %>
-          </td>
-          <% else %>
-          <td>
-            <%= link_to create_favorite_path(food), class: "favorite-link", method: :POST, remote: true do %>
-              お気に入り<i class="fa fa-heart like-btn fa-lg"></i>
-            <% end %>
-            <%= food.favorites.count %>
-          </td>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= link_to '続きを読む', food_path(food) %>
+              <i class="fa-solid fa-angles-right"></i>
+            </td>
+          </tr>
+          <tr>
+            <td class="price-red">
+              <%= food.price %>
+            </td>
+          </tr>
+          <% if current_user&.admin %>
+          <tr>
+            <td>
+              <%= link_to 'フード情報更新・管理', food_path(food) %>
+              <i class="fa-solid fa-pencil"></i>
+            </td>
+          </tr>
           <% end %>
-        </tr>
+          <% if !current_user%>
+          <tr>
+            <td>
+              <%= link_to "javascript:alert('ログインしてください');", class: "favorite-link" do %>
+                <i class="fa fa-heart unlike-btn fa-lg"></i>
+              <% end %>
+              <%= food.favorites.count %>
+            </td>
+            <td></td>
+              <% elsif current_user.favorited_by?(food.id) %>
+            <td>
+              <%= link_to favorite_path(food), class: "favorite-link", method: :DELETE, remote: true do %>
+                お気に入り解除<i class="fa fa-heart unlike-btn fa-lg"></i>
+              <% end %>
+              <%= food.favorites.count %>
+            </td>
+            <% else %>
+            <td>
+              <%= link_to create_favorite_path(food), class: "favorite-link", method: :POST, remote: true do %>
+                お気に入り<i class="fa fa-heart like-btn fa-lg"></i>
+              <% end %>
+              <%= food.favorites.count %>
+            </td>
+            <% end %>
+          </tr>
         <% end %>
       </tbody>
     <% end %>

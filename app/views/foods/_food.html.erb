@@ -21,19 +21,19 @@
   </td>
 </tr>
 <tr>
-  <td>
-    <%= food.price %>
-  </td>
-</tr>
-<tr>
   <td class="food-comment-continue">
-    <%= food.comment %>
+  <%= food.comment %>
   </td>
 </tr>
 <tr>
   <td>
     <%= link_to '続きを読む', food_path(food) %>
     <i class="fa-solid fa-angles-right"></i>
+  </td>
+</tr>
+<tr>
+  <td class="price-red">
+    <%= food.price %>
   </td>
 </tr>
 <% if current_user&.admin %>
