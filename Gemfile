@@ -47,6 +47,7 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'fog-aws'
 gem 'unicorn'
+gem 'rubocop', require: false
 
 
 group :development, :test do
