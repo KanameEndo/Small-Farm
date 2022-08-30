@@ -7,32 +7,26 @@
     <strong>品名：</strong>
     <%= @food.item_name %>
   </p>
-
   <p>
     <strong>品種：</strong>
     <%= @food.variety %>
   </p>
-
   <p>
     <strong>内容:</strong>
     <%= @food.comment %>
   </p>
-
   <p>
     <strong>保存方法:</strong>
     <%= @food.storage_method %>
   </p>
-
   <p>
     <strong>収穫予定日:</strong>
     <%= @food.harvest %>
   </p>
-
   <p>
     <strong>価格:</strong>
     <%= @food.price %>
   </p>
-
   <p>
     <strong>在庫状況:</strong>
     <%= @food.stock %>
@@ -45,14 +39,14 @@
     </p>
   </div>
 
-<% if current_user %>
-  <div class="button-white-small">
-    <p class="arrow">
-      <i class="fa-solid fa-user"></i>
-      <%= link_to 'マイページ', users_show_path %>
-    </p>
-  </div>
-<% end %>
+  <% if current_user %>
+    <div class="button-white-small">
+      <p class="arrow">
+        <i class="fa-solid fa-user"></i>
+        <%= link_to 'マイページ', users_show_path %>
+      </p>
+    </div>
+  <% end %>
 
   <% if current_user&.admin %>
     <div class="button-blue-small">
@@ -68,3 +62,4 @@
       </p>
     </div>
   <% end %>
+</div>

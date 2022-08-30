@@ -2,7 +2,6 @@
   <% if contact.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(contact.errors.count, "件のエラー") %> が発生したため送信されませんでした。</h2>
-
       <ul>
         <% contact.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,7 +9,8 @@
       </ul>
     </div>
   <% end %>
-<h3 class="contact">お問い合わせ</h3>
+
+  <h3 class="contact">お問い合わせ</h3>
   <dl>
     <dt><%= form.label :お名前 %></dt>
     <dd class="form-contact"><%= form.text_field :name, placeholder: "岡本 太郎" %></dd>
@@ -23,8 +23,7 @@
     <dt><%= form.label :お問い合わせ内容 %></dt>
     <dd class="form-contact"><%= form.text_area :message, placeholder: "例)トマトは毎年何月ぐらいに収穫しますか？" %></dd>
   </dl>
-
-<div class="actions">
-  <%= form.submit  "送信" %>
-</div>
+  <div class="actions">
+    <%= form.submit  "送信" %>
+  </div>
 <% end %>

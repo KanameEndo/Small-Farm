@@ -8,12 +8,12 @@
       <td class="users-show-edit">メールアドレス：<%= current_user.email %></td>
     </tr>
   </table>
-
   <div class="profile-edit">
     <i class="fa-solid fa-pencil"></i>
     &nbsp;<%= link_to "プロフィール編集", edit_user_path(current_user), data: {"turbolinks" => false} %>
   </div>
 </div>
+
 <div class="food-container-favorites">
   <table>
     <% if @favorite_list.present? %>

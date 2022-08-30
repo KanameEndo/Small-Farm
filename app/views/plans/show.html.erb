@@ -1,34 +1,30 @@
 <p id="notice"><%= notice %></p>
+
 <div class="show">
   <h1>
     <strong>タイトル：</strong>
     <%= @plan.title %>
   </h1>
-
   <p>
     <strong>内容：</strong>
     <%= @plan.content %>
   </p>
-
   <p>
     <strong>日時：</strong>
     <%= @plan.start_time.strftime("%m-%d") %>
   </p>
-
   <div class="button-blue-small">
     <p class="arrow">
       <i class="fa-solid fa-trash-can"></i>
       <%= link_to '消去',plan_path(@plan.id), method: :delete, data: { confirm: '本当に消していいですか?' } %>
     </p>
   </div>
-
   <div class="button-blue-small">
     <p class="arrow">
       <i class="fa-solid fa-pencil"></i>
       <%= link_to '編集', edit_plan_path(@plan) %>
     </p>
   </div>
-
   <div class="button-white-small">
     <p class="arrow">
       <i class="fa-solid fa-angle-left"></i>
