@@ -17,17 +17,15 @@ class UsersController < ApplicationController
     @user = current_user
     @foods = @user.foods
 
-    favorites = Favorite.where(user_id: current_user.id).pluck(:food_id)  # ログイン中のユーザーのお気に入りのFood_idカラムを取得
-    @favorite_list = Food.find(favorites)     # Foodsテーブルから、お気に入り登録済みのレコードを取得
+    favorites = Favorite.where(user_id: current_user.id).pluck(:food_id)
+    @favorite_list = Food.find(favorites)
   end
 
   def edit
-    # @user = current_user
     @user = User.find(params[:id])
   end
 
   def update
-    # @user = current_user
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to users_show_path(@user.id)

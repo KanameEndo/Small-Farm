@@ -1,22 +1,22 @@
 class Admin::FoodsController < ApplicationController
   before_action :if_not_admin
   before_action :set_food, only: [:show, :edit, :destroy]
-  
+
     def index
       @foods = Food.all
     end
-  
+
     def show
       @favorite = current_user.favorites.find_by(food_id: @food.id)
     end
-  
+
     def new
       @food = Food.new
     end
-  
+
     def edit
     end
-  
+
     def create
       @food = Food.new(food_params)
       if @food.save
@@ -26,7 +26,7 @@ class Admin::FoodsController < ApplicationController
         format.html { render :new, status: :unprocessable_entity }
       end
     end
-  
+
     def update
       respond_to do |format|
         if @food.update(food_params)
@@ -36,15 +36,15 @@ class Admin::FoodsController < ApplicationController
         end
       end
     end
-  
+
     def destroy
       @food.destroy
-  
+
       respond_to do |format|
         format.html { redirect_to foods_url, notice: "Food was successfully destroyed." }
       end
     end
-  
+
 
     private
 
@@ -55,5 +55,5 @@ class Admin::FoodsController < ApplicationController
     def set_food
       @food = Food.find(params[:id])
     end
-  
+
 end

@@ -25,10 +25,6 @@ class ContactsController < ApplicationController
     end
   end
 
-  # def confirm
-  #   @contact = Contact.new(contact_params)
-  # end
-
   def destroy
     @contact.destroy
   end
