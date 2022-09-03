@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   end
   post 'favorite/:id' => 'favorites#create', as: 'create_favorite'
 
-  resources :plans
+  resources :plans do
+    resources :comments
+  end
   resources :favorites, only: [:favorites, :create, :destroy]
   root 'foods#index'
   if Rails.env.development?

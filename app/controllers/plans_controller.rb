@@ -11,6 +11,8 @@ class PlansController < ApplicationController
 
   def show
     @plan = Plan.find(params[:id])
+    @comments = @plan.comments
+    @comment = @plan.comments.build
   end
 
   def create

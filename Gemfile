@@ -47,8 +47,6 @@ gem 'jquery-rails'
 gem 'jquery-turbolinks'
 gem 'fog-aws'
 gem 'unicorn'
-gem 'rubocop', require: false
-
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -64,6 +62,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
   gem 'ed25519'
   gem 'bcrypt_pbkdf'
+  gem 'rubocop', require: false
 end
 
 group :development do
