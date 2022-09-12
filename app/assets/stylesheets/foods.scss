@@ -38,6 +38,9 @@ h3 {
   object-fit: cover;
 }
 
+.food-show-img {
+  width: 480px;
+}
 
 .tbody {
   width: 225px;
@@ -134,6 +137,16 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.foods_show_images {
+  width: 50%;
+  max-width: 480px;
+}
+
+.foods-groups {
+  width: 50%;
+  max-width: 480px;
 }
 
 .food-show-img {

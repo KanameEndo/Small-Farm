@@ -1,8 +1,11 @@
-<div class="form-groups">
-  <h1 class="food-show-h1"><%= @food.item_name %> の詳細</h1>
+<div class="foods_show_images">
   <p class="food-show-img">
     <%= image_tag @food.image.variant(resize: "460") if @food.image.attached? %>
   </p>
+</div>
+
+<div class="foods-groups">
+  <h1 class="food-show-h1"><%= @food.item_name %> の詳細</h1>
   <p>
     <strong>品名：</strong>
     <%= @food.item_name %>
