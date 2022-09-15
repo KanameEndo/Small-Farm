@@ -20,3 +20,5 @@ require("jquery")  //このコードを追加
 // import '@fortawesome/fontawesome-free/js/all'
 // import '../src/application.scss'
 
+import "../channels/plan"
+

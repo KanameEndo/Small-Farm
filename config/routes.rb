@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create, :destroy] 
   resources :maps, only: [:index]
   resources :others, only: [:index]
+  resources :wethers, only: [:index]
 end
