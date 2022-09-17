@@ -140,13 +140,11 @@ h3 {
 }
 
 .foods_show_images {
-  width: 50%;
   max-width: 480px;
 }
 
 .foods-groups {
-  width: 50%;
-  max-width: 480px;
+  margin: auto;
 }
 
 .food-show-img {
@@ -216,6 +214,81 @@ h3 {
   justify-content: center;
 }
 
+
+/*スライドショー*/
+.slideshow-zoom {
+  position: relative;
+  overflow: hidden;
+  width: 960px;
+  height: 300px;
+  padding: 0;
+
+  li {
+    list-style: none;
+    width: 100%;
+    height: 100%;
+    animation: zooming 5s forwards;
+
+    img {
+      width: 100%;
+    }
+
+    @keyframes zooming {
+      0% {
+        z-index: 1;
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1.2);
+        opacity: 1;
+        z-index: 10;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 480px) {
   /* 480px以下に適用されるCSS（スマホ用） */
+}
+
+/* アクティブな画像の枠線を変更 */
+.sub-img li.current img {
+  border: 2px solid rgb(0, 195, 255);
+  transition: border .5s;
+}
+
+/* レイアウトのためのスタイル */
+.main-img {
+  width: 460px;
+  height: 400px;
+}
+
+.main-img img {
+  height: auto;
+  width: 100%;
+}
+
+.sub-img {
+  display: flex;
+  margin-top: 10px;
+}
+
+.sub-img li {
+  margin-right: 2%;
+  width: calc(96% / 3);
+}
+
+.sub-img li:nth-child(3n) {
+  margin-right: 0;
+}
+
+.sub-img li img {
+  border: 2px solid transparent;
+  transition: border .5s;
+}
+
+.sub-img img {
+  cursor: pointer;
+  width: 100%;
 }

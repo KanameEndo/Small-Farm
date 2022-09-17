@@ -56,7 +56,7 @@ class FoodsController < ApplicationController
     end
 
     def food_params
-      params.require(:food).permit(:item_name, :variety, :comment, :storage_method, :harvest, :price, :stock, :image, :image_cache)
+      params.require(:food).permit(:item_name, :variety, :comment, :storage_method, :harvest, :price, :stock, images: [])
     end
 
     def check_admin

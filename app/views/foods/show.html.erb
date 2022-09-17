@@ -1,7 +1,12 @@
 <div class="foods_show_images">
-  <p class="food-show-img">
-    <%= image_tag @food.image.variant(resize: "460") if @food.image.attached? %>
-  </p>
+  <div class="main-img js-main-img">
+    <%= image_tag @food.images.first %>
+  </div>
+  <ul class="sub-img js-sub-img">
+    <% @food.images.each do |image|%>
+      <li><%= image_tag image.variant(resize: "460")%></li>
+    <% end %>
+  </ul>
 </div>
 
 <div class="foods-groups">
@@ -34,6 +39,7 @@
     <strong>在庫状況:</strong>
     <%= @food.stock %>
   </p>
+</div>
 
   <div class="button-white-small">
     <p class="arrow">
@@ -66,3 +72,23 @@
     </div>
   <% end %>
 </div>
+
+<script>
+  $(function () {
+    $(".js-sub-img img").on("click", function () {
+      // メイン画像に切り替えるimgのsrc取得
+      img = $(this).attr("src");
+      // currentクラス付け替え(枠線などを変えたい時に)
+      $(".js-sub-img li").removeClass("current");
+      $(this).parent().addClass("current");
+      // fadeOutできたらsrc変更してfadeIn
+      $(".js-main-img img").fadeOut(500, function () {
+        $(".js-main-img img")
+          .attr("src", img)
+          .on("load", function () {
+            $(this).fadeIn(500);
+          });
+      });
+    });
+  });
+</script>

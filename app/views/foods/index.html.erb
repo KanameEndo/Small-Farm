@@ -1,8 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<div class="slick-list">
-  <%= image_tag (asset_path'main.png') %>
-</div>
+<ul class="slideshow-zoom">
+  <li><%= image_tag (asset_path'main.png') %></li>
+  <li><%= image_tag (asset_path'621761_s.jpg') %></li>
+  <li><%= image_tag (asset_path'main.png') %></li>
+  <li><%= image_tag (asset_path'621761_s.jpg') %></li>
+</ul>
 
 <h1 class="concept">内山農園ではSDGsの一環としてフードロスに取り組んでます。</br>お近くに住む方たちに、採れたての野菜をお手頃価格でご提供しております。</br>収穫予定日をメールで予めお知らせし、 ご来店いただいた方順に販売しています。</h1>
 
@@ -20,7 +23,7 @@
         <tr>
           <td>
             <%= link_to (food_path(food)) do%>
-              <%= image_tag food.image.variant(resize: "225") if food.image.attached? %>
+              <%= image_tag food.images.first.variant(resize: "225") if food.images.count.positive? %>
             <% end %>
           </td>
         </tr>
@@ -108,3 +111,16 @@
 </div>
 
 <%= paginate @foods %>
+
+<script>
+$(function(){
+  $(".slideshow-zoom li").css({"position":"relative"});
+  $(".slideshow-zoom li").hide().css({"position":"absolute","top":0,"left":0});
+  setInterval(function(){
+    var $active = $(".slideshow-zoom li.zoom");
+    var $next = $active.next("li").length?$active.next("li"):$(".slideshow-zoom li:first");
+    $active.fadeOut(2000).removeClass("zoom");
+    $next.fadeIn(2000).addClass("zoom");
+  },2000);
+});
+</script>

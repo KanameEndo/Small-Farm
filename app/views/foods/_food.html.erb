@@ -1,7 +1,7 @@
 <tr>
   <td>
     <%= link_to (food_path(food)) do%>
-      <%= image_tag food.image.variant(resize: "225") if food.image.attached? %>
+      <%= image_tag food.images.first.variant(resize: "225") if food.images.count.positive? %>
     <% end %>
   </td>
 </tr>

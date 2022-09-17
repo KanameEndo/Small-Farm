@@ -21,4 +21,3 @@ require("jquery")  //このコードを追加
 // import '../src/application.scss'
 
 import "../channels/plan"
-

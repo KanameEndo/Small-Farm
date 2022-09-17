@@ -44,7 +44,7 @@ function ajaxRequest(lat, long) {
         const min = String(dateTime.getMinutes()).padStart(2, '0');
         const temperature = Math.round(forecast.main.temp);
         const description = forecast.weather[0].description;
-        const iconPath = `asset_path/${forecast.weather[0].icon}.svg`;
+        const iconPath = `/images/${forecast.weather[0].icon}.svg`;
 
         // 現在の天気とそれ以外で出力を変える
         if (index === 0) {
@@ -75,3 +75,4 @@ function ajaxRequest(lat, long) {
       console.log('$.ajax failed!');
     })
 }
+
