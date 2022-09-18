@@ -1,76 +1,78 @@
-<div class="foods_show_images">
-  <div class="main-img js-main-img">
-    <%= image_tag @food.images.first %>
+<div class="food_show_container">
+  <div class="foods_show_images">
+    <div class="main-img js-main-img">
+      <%= image_tag @food.images.first %>
+    </div>
+    <ul class="sub-img js-sub-img">
+      <% @food.images.each do |image|%>
+        <li><%= image_tag image.variant(resize: "460")%></li>
+      <% end %>
+    </ul>
   </div>
-  <ul class="sub-img js-sub-img">
-    <% @food.images.each do |image|%>
-      <li><%= image_tag image.variant(resize: "460")%></li>
-    <% end %>
-  </ul>
-</div>
 
-<div class="foods-groups">
-  <h1 class="food-show-h1"><%= @food.item_name %> の詳細</h1>
-  <p>
-    <strong>品名：</strong>
-    <%= @food.item_name %>
-  </p>
-  <p>
-    <strong>品種：</strong>
-    <%= @food.variety %>
-  </p>
-  <p>
-    <strong>内容:</strong>
-    <%= @food.comment %>
-  </p>
-  <p>
-    <strong>保存方法:</strong>
-    <%= @food.storage_method %>
-  </p>
-  <p>
-    <strong>収穫予定日:</strong>
-    <%= @food.harvest %>
-  </p>
-  <p>
-    <strong>価格:</strong>
-    <%= @food.price %>
-  </p>
-  <p>
-    <strong>在庫状況:</strong>
-    <%= @food.stock %>
-  </p>
-</div>
-
-  <div class="button-white-small">
-    <p class="arrow">
-      <i class="fa-solid fa-angle-left"></i>
-      <%= link_to 'トップページ', foods_path %>
+  <div class="foods-groups">
+    <h1 class="food-show-h1"><%= @food.item_name %> の詳細</h1>
+    <p>
+      <strong>品名：</strong>
+      <%= @food.item_name %>
+    </p>
+    <p>
+      <strong>品種：</strong>
+      <%= @food.variety %>
+    </p>
+    <p>
+      <strong>内容:</strong>
+      <%= @food.comment %>
+    </p>
+    <p>
+      <strong>保存方法:</strong>
+      <%= @food.storage_method %>
+    </p>
+    <p>
+      <strong>収穫予定日:</strong>
+      <%= @food.harvest %>
+    </p>
+    <p>
+      <strong>価格:</strong>
+      <%= @food.price %>
+    </p>
+    <p>
+      <strong>在庫状況:</strong>
+      <%= @food.stock %>
     </p>
   </div>
 
-  <% if current_user %>
     <div class="button-white-small">
       <p class="arrow">
-        <i class="fa-solid fa-user"></i>
-        <%= link_to 'マイページ', users_show_path %>
+        <i class="fa-solid fa-angle-left"></i>
+        <%= link_to 'トップページ', foods_path %>
       </p>
     </div>
-  <% end %>
 
-  <% if current_user&.admin %>
-    <div class="button-blue-small">
-      <p class="arrow">
-        <i class="fa-solid fa-pencil"></i>
-        <%= link_to '編集', edit_food_path(@food) %>
-      </p>
-    </div>
-    <div class="button-blue-small">
-      <p class="arrow">
-        <i class="fa-solid fa-trash-can"></i>
-        <%= link_to '削除', food_path(@food), method: :delete, data: { confirm: '本当に消していいですか？' } %>
-      </p>
-    </div>
-  <% end %>
+    <% if current_user %>
+      <div class="button-white-small">
+        <p class="arrow">
+          <i class="fa-solid fa-user"></i>
+          <%= link_to 'マイページ', users_show_path %>
+        </p>
+      </div>
+    <% end %>
+
+    <% if current_user&.admin %>
+      <div class="button-blue-small">
+        <p class="arrow">
+          <i class="fa-solid fa-pencil"></i>
+          <%= link_to '編集', edit_food_path(@food) %>
+        </p>
+      </div>
+      <div class="button-blue-small">
+        <p class="arrow">
+          <i class="fa-solid fa-trash-can"></i>
+          <%= link_to '削除', food_path(@food), method: :delete, data: { confirm: '本当に消していいですか？' } %>
+        </p>
+      </div>
+    <% end %>
+  </div>
 </div>
 
 <script>

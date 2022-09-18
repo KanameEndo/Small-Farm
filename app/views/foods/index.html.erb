@@ -1,10 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <ul class="slideshow-zoom">
-  <li><%= image_tag (asset_path'main.png') %></li>
-  <li><%= image_tag (asset_path'621761_s.jpg') %></li>
-  <li><%= image_tag (asset_path'main.png') %></li>
-  <li><%= image_tag (asset_path'621761_s.jpg') %></li>
+  <li><%= image_tag (asset_path'main_01.jpg') %></li>
+  <li><%= image_tag (asset_path'main_02.jpg') %></li>
+  <li><%= image_tag (asset_path'main_03.jpg') %></li>
+  <li><%= image_tag (asset_path'main_04.jpg') %></li>
 </ul>
 
 <h1 class="concept">内山農園ではSDGsの一環としてフードロスに取り組んでます。</br>お近くに住む方たちに、採れたての野菜をお手頃価格でご提供しております。</br>収穫予定日をメールで予めお知らせし、 ご来店いただいた方順に販売しています。</h1>
@@ -119,8 +119,8 @@ $(function(){
   setInterval(function(){
     var $active = $(".slideshow-zoom li.zoom");
     var $next = $active.next("li").length?$active.next("li"):$(".slideshow-zoom li:first");
-    $active.fadeOut(2000).removeClass("zoom");
-    $next.fadeIn(2000).addClass("zoom");
-  },2000);
+    $active.fadeOut(5000).removeClass("zoom");
+    $next.fadeIn(5000).addClass("zoom");
+  },5000);
 });
 </script>
