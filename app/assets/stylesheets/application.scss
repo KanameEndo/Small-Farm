@@ -127,10 +127,16 @@ p {
   margin: 0 0 0 80px;
   cursor: pointer;
   border-radius: 4px;
+  position: relative;
+  z-index: 2;
 }
 
 .burger :hover {
   background-color: #fff;
+}
+
+.burger .is-active {
+  background-image: url("public/images/close.png");
 }
 
 .menu {
@@ -146,6 +152,10 @@ p {
   left: 0;
   z-index: 1;
   display: none;
+}
+
+.menu .is-active {
+  display: flex;
 }
 
 .food-container {
