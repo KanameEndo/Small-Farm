@@ -14,10 +14,10 @@
   </head>
 
   <body>
-    <header id="header">
+    <header class="header">
       <h1></h1>
-        <nav id="g-navi">
-          <ul>
+        <nav>
+          <ul class="list_nav_header">
             <% if user_signed_in? %>
               <li><%= link_to "マイページ", users_show_path %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
@@ -32,6 +32,12 @@
               <li><%= link_to 'お問い合わせ', new_contact_path %></li>
             <% end %>
           </ul>
+          <div class="burger">
+            <%= image_tag (asset_path'menu.png') %>
+          </div>
+          <div class="menu">
+            サンプル
+          </div>
         </nav>
     </header>
     <div class="wrapper">
@@ -45,7 +51,7 @@
       </div>
     </div>
     <footer>
-      <ul class="menu">
+      <ul class="footer">
         <li><%= link_to 'トップページ', foods_path %></li>
         <li><%= link_to '内山農園について', others_path %></li>
         <li><%= link_to 'お問い合わせ', new_contact_path %></li>

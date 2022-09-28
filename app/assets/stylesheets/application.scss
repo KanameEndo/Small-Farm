@@ -83,94 +83,11 @@ p {
   overflow: hidden;
 }
 
-/*========= 途中からハンバーガーメニューに変化するのためのCSS ===============*/
-/*========= ボタンのためのCSS ===============*/
-/*ボタン全体の形状*/
-.openbtn1 {
-  /*はじめは非表示に*/
-  display: none;
-  /*ボタンの位置*/
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 999;
-  /*ボタンの形状*/
-  background: #9AC243;
-  cursor: pointer;
-  width: 50px;
-  height: 50px;
-  border-radius: 5px;
-}
-
-/*ボタンのアイコン設定*/
-.openbtn1 span {
-  display: inline-block;
-  transition: all .4s;
-  position: absolute;
-  left: 14px;
-  height: 3px;
-  border-radius: 2px;
-  background-color: #fff;
-  width: 45%;
-}
-
-.openbtn1 span:nth-of-type(1) {
-  top: 15px;
-}
-
-.openbtn1 span:nth-of-type(2) {
-  top: 23px;
-}
-
-.openbtn1 span:nth-of-type(3) {
-  top: 31px;
-}
-
-/*activeクラスが付与された後のボタンのアイコン設定*/
-.openbtn1.active span:nth-of-type(1) {
-  top: 18px;
-  left: 18px;
-  transform: translateY(6px) rotate(-45deg);
-  width: 30%;
-}
-
-.openbtn1.active span:nth-of-type(2) {
-  opacity: 0;
-}
-
-.openbtn1.active span:nth-of-type(3) {
-  top: 30px;
-  left: 18px;
-  transform: translateY(-6px) rotate(45deg);
-  width: 30%;
-}
-
-/*fadeDownクラスが付与された後のボタンの出現アニメーション設定*/
-.fadeDown {
-  animation-name: fadeDownAnime;
-  animation-duration: 0.5s;
-  animation-fill-mode: forwards;
-  opacity: 0;
-  display: block;
-}
-
-@keyframes fadeDownAnime {
-  from {
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 
 /*========= ヘッダーナビゲーションのためのCSS ===============*/
 
 /*==ヘッダーの形状*/
-#header {
+.header {
   height: 70px;
   width: 100%;
   display: flex;
@@ -182,83 +99,53 @@ p {
   padding: 20px;
 }
 
-/*.doneクラスがついたヘッダー*/
-#header.dnone {
-  opacity: 0;
-  /*透過0にして非表示に*/
-}
-
-/*メニューボタンをクリックした際に付与されるpanelactiveクラスがついたら*/
-#header.dnone.panelactive {
-  opacity: 1;
-  /*不透明にして出現*/
-}
-
-
-/*==ヘッダーのテキストナビゲーションの形状*/
-#g-navi ul {
-  list-style: none;
+.list_nav_header {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
 }
 
-#g-navi ul li a {
+.list_nav_header a:hover {
+  color: #fff;
+}
+
+.list_nav_header li a {
   display: block;
   text-decoration: none;
   color: #666;
   padding: 10px;
 }
 
-#g-navi ul li.current a,
-#g-navi ul li a:hover {
-  color: #fff;
+.burger {
+  width: 40px;
+  height: 40px;
+  background-image: url("public/images/menu.png");
+  background-size: 24px;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0 0 0 80px;
+  cursor: pointer;
+  border-radius: 4px;
 }
 
-/*.doneクラスがついたヘッダーのテキストナビゲーションの形状*/
-#header.dnone #g-navi {
-  /*固定位置にして最背面に*/
+.burger :hover {
+  background-color: #fff;
+}
+
+.menu {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: -1;
-  /*高さと幅*/
-  width: 100%;
-  height: 100vh;
-  /*天地中央＆テキスト中央揃え*/
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  /*はじめは透過0に*/
-  opacity: 0;
-  transition: all 0.4s;
-}
-
-/*メニューボタンをクリックした際に付与されるpanelactiveクラスがついたナビゲーションの形状*/
-#header.dnone.panelactive #g-navi {
-  opacity: 1;
-  /*不透明に*/
-  z-index: 3;
-  /*最前面に*/
-  background: #eee;
-}
-
-#header.dnone.panelactive #g-navi ul {
-  display: block;
-  /*flexの横並びをblockにして縦並びに*/
-}
-
-/*リストの形状*/
-
-#header.dnone.panelactive #g-navi li a {
-  color: #333;
-  text-decoration: none;
-  padding: 10px;
-  display: block;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  font-weight: bold;
-  transition: all 0.3s;
+  z-index: 1;
+  display: none;
 }
 
 .food-container {
@@ -303,7 +190,7 @@ footer a:hover {
   text-decoration: underline;
 }
 
-footer .menu {
+footer .footer {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -312,13 +199,13 @@ footer .menu {
   justify-content: center;
 }
 
-footer .menu li {
+footer .footer li {
   margin: 0;
   padding: 0 20px;
   border-right: 1px #808080 solid;
 }
 
-footer .menu li:last-child {
+footer .footer li:last-child {
   border: none;
 }
 
