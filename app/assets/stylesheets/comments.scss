@@ -4,15 +4,14 @@
 .icon {
   font-size: 22px;
   justify-content: center;
-  width: 30px;
-  height: 30px;
-  // float: left;
+  margin-left: 15px
 }
 
 .comment_detail {
   border-bottom: 0.5px solid rgb(154, 154, 154);
 }
 
-// .icon_container {
-//   float: right;
-// }
+.icon_container {
+  display: flex;
+  justify-content: flex-end;
+}
